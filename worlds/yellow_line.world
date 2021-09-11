@@ -34,7 +34,7 @@
           </geometry>
           <material>
             <script>
-              <uri>model://course.material</uri>
+              <uri>models/course.material</uri>
               <name>course</name>
             </script>
           </material>
