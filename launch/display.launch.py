@@ -14,8 +14,8 @@ def generate_launch_description():
         "GAZEBO_MODEL_PATH": model_path,
     }
 
-    sdf_prefix = get_package_share_directory("my_bot")
-    sdf_file = os.path.join(sdf_prefix, "urdf", "walle.sdf")
+    urdf_prefix = get_package_share_directory("my_bot")
+    urdf_file = os.path.join(urdf_prefix, "urdf", "m2wr.xacro")
 
     world_prefix = get_package_share_directory("my_bot")
     world_file = os.path.join(world_prefix, "worlds", "white.world")
@@ -39,7 +39,7 @@ def generate_launch_description():
                 node_executable="spawn_entity.py",
                 arguments=[
                     "-entity",
-                    "walle",
+                    "m2wr",
                     "-x",
                     "-1",
                     "-y",
@@ -48,14 +48,14 @@ def generate_launch_description():
                     ".41",
                     "-b",
                     "-file",
-                    sdf_file,
+                    urdf_file,
                 ],
             ),
             Node(
                 package="robot_state_publisher",
                 node_executable="robot_state_publisher",
                 output="screen",
-                arguments=[sdf_file],
+                arguments=[urdf_file],
             ),
         ]
     )

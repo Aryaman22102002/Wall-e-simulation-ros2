@@ -19,13 +19,19 @@ endif()
 find_package(ament_cmake REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(gazebo_ros_pkgs REQUIRED)
+
+set (dependencies
+gazebo_ros
+)
 
 install(
 DIRECTORY 
  launch
  models
  worlds
+ urdf
+ meshes
   DESTINATION share/${PROJECT_NAME}/
   )
 
