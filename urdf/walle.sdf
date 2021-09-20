@@ -1,48 +1,156 @@
 <sdf version='1.7'>
   <model name='walle'>
-    <link name='base_link'>
+    <link name='chassis'>
       <inertial>
-        <pose>-0 0 -0.0025 0 -0 0</pose>
-        <mass>0.0915522</mass>
+        <pose>0 -0.004178 0.018952 0 -0 0</pose>
+        <mass>0.275783</mass>
         <inertia>
-          <ixx>0.000121426</ixx>
-          <ixy>1.28749e-19</ixy>
-          <ixz>2.00583e-22</ixz>
-          <iyy>0.000118984</iyy>
-          <iyz>-4.40398e-24</iyz>
-          <izz>0.000240029</izz>
+          <ixx>0.000602777</ixx>
+          <ixy>6.63764e-19</ixy>
+          <ixz>-1.37082e-18</ixz>
+          <iyy>0.000678047</iyy>
+          <iyz>4.86967e-05</iyz>
+          <izz>0.000730516</izz>
         </inertia>
       </inertial>
-      <collision name='base_link_collision'>
+      <collision name='chassis_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/base_link.STL</uri>
+            <uri>meshes/chassis.STL</uri>
           </mesh>
         </geometry>
       </collision>
-      <visual name='base_link_visual'>
+      <collision name='chassis_fixed_joint_lump__backleftspacers_collision_1'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/base_link.STL</uri>
+            <uri>meshes/backleftspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__backrightspacers_collision_2'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/backrightspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__frontdir_collision_3'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/frontdir.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__frontleftspacers_collision_4'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/frontleftspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__frontrightspacers_collision_5'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/frontrightspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='chassis_fixed_joint_lump__pcb_collision_6'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/pcb.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='chassis_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/chassis.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chassis_fixed_joint_lump__backleftspacers_visual_1'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/backleftspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chassis_fixed_joint_lump__backrightspacers_visual_2'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/backrightspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chassis_fixed_joint_lump__frontdir_visual_3'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/frontdir.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chassis_fixed_joint_lump__frontleftspacers_visual_4'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/frontleftspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chassis_fixed_joint_lump__frontrightspacers_visual_5'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/frontrightspacers.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+      <visual name='chassis_fixed_joint_lump__pcb_visual_6'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/pcb.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name='leftjoint' type='revolute'>
-      <pose relative_to='base_link'>-0.00545 0.10601 -0.017901 0 -0 0</pose>
-      <parent>base_link</parent>
-      <child>leftlink</child>
+    <joint name='lw' type='revolute'>
+      <pose relative_to='chassis'>-0.09295 -0.014082 -0.018804 0 -0 0</pose>
+      <parent>chassis</parent>
+      <child>leftwheel</child>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>-1 0 0</xyz>
         <limit>
+          <lower>0</lower>
+          <upper>0</upper>
           <effort>1</effort>
           <velocity>1</velocity>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -50,50 +158,50 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='leftlink'>
-      <pose relative_to='leftjoint'>0 0 0 0 -0 0</pose>
+    <link name='leftwheel'>
+      <pose relative_to='lw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0 -0.01231 0 0 -0 0</pose>
-        <mass>0.0297341</mass>
+        <pose>0.027498 -0.005342 -7e-05 0 -0 0</pose>
+        <mass>0.0607932</mass>
         <inertia>
-          <ixx>1.22913e-05</ixx>
-          <ixy>-4.10833e-11</ixy>
-          <ixz>-1.60252e-10</ixz>
-          <iyy>2.03788e-05</iyy>
-          <iyz>-7.97922e-11</iyz>
-          <izz>1.22911e-05</izz>
+          <ixx>2.50029e-05</ixx>
+          <ixy>1.705e-06</ixy>
+          <ixz>1.35136e-08</ixz>
+          <iyy>1.80994e-05</iyy>
+          <iyz>-2.39976e-09</iyz>
+          <izz>1.97971e-05</izz>
         </inertia>
       </inertial>
-      <collision name='leftlink_collision'>
+      <collision name='leftwheel_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftlink.STL</uri>
+            <uri>meshes/leftwheel.STL</uri>
           </mesh>
         </geometry>
       </collision>
-      <visual name='leftlink_visual'>
+      <visual name='leftwheel_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftlink.STL</uri>
+            <uri>meshes/leftwheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name='rightjoint' type='revolute'>
-      <pose relative_to='base_link'>-0.006345 -0.10601 -0.017901 0 -0 0</pose>
-      <parent>base_link</parent>
-      <child>rightlink</child>
+    <joint name='rw' type='revolute'>
+      <pose relative_to='chassis'>0.09295 -0.014082 -0.018802 0 -0 0</pose>
+      <parent>chassis</parent>
+      <child>rightwheel</child>
       <axis>
-        <xyz>0 -1 0</xyz>
+        <xyz>-1 0 0</xyz>
         <limit>
+          <lower>0</lower>
+          <upper>0</upper>
           <effort>1</effort>
           <velocity>1</velocity>
-          <lower>-1e+16</lower>
-          <upper>1e+16</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -101,35 +209,35 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='rightlink'>
-      <pose relative_to='rightjoint'>0 0 0 0 -0 0</pose>
+    <link name='rightwheel'>
+      <pose relative_to='rw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0 0.01231 -0 0 -0 0</pose>
-        <mass>0.0297341</mass>
+        <pose>-0.027498 -0.005342 7e-05 0 -0 0</pose>
+        <mass>0.0607932</mass>
         <inertia>
-          <ixx>1.22913e-05</ixx>
-          <ixy>4.10833e-11</ixy>
-          <ixz>1.60252e-10</ixz>
-          <iyy>2.03788e-05</iyy>
-          <iyz>-7.97922e-11</iyz>
-          <izz>1.22911e-05</izz>
+          <ixx>2.50029e-05</ixx>
+          <ixy>-1.705e-06</ixy>
+          <ixz>1.35136e-08</ixz>
+          <iyy>1.80994e-05</iyy>
+          <iyz>2.39976e-09</iyz>
+          <izz>1.97971e-05</izz>
         </inertia>
       </inertial>
-      <collision name='rightlink_collision'>
+      <collision name='rightwheel_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/rightlink.STL</uri>
+            <uri>meshes/rightwheel.STL</uri>
           </mesh>
         </geometry>
       </collision>
-      <visual name='rightlink_visual'>
+      <visual name='rightwheel_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/rightlink.STL</uri>
+            <uri>meshes/rightwheel.STL</uri>
           </mesh>
         </geometry>
       </visual>

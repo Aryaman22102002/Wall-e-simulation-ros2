@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="wallewithoutpcb1.SLDASM">
+  <link
+    name="chassis">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -1.66533453693773E-16 -0.00250000000000006"
+        rpy="0 0 0" />
+      <mass
+        value="0.0914673846752495" />
+      <inertia
+        ixx="0.000118970955119208"
+        ixy="1.23748760695118E-19"
+        ixz="3.43415310971301E-20"
+        iyy="0.000121228795854481"
+        iyz="6.42105438613503E-21"
+        izz="0.000239818636870875" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="frontrightspacers">
+    <inertial>
+      <origin
+        xyz="0.0532500000000003 0.0258411327813396 0.0299999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.00388814503965923" />
+      <inertia
+        ixx="1.58984630611233E-06"
+        ixy="2.62369197495771E-25"
+        ixz="-5.51796151660407E-22"
+        iyy="1.58984630611233E-06"
+        iyz="2.64310147202606E-22"
+        izz="4.37416316961664E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/frontrightspacers.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/frontrightspacers.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="frs"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="frontrightspacers" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="frontleftspacers">
+    <inertial>
+      <origin
+        xyz="-0.0532499999999997 0.0258411327813394 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.00388814503965923" />
+      <inertia
+        ixx="1.58984630611233E-06"
+        ixy="1.52905435782657E-27"
+        ixz="-3.54315137307759E-22"
+        iyy="1.58984630611233E-06"
+        iyz="2.64399188898145E-22"
+        izz="4.37416316961664E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/frontleftspacers.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/frontleftspacers.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fls"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="frontleftspacers" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="backleftspacers">
+    <inertial>
+      <origin
+        xyz="-0.0532499999999996 -0.0506588672186604 0.03"
+        rpy="0 0 0" />
+      <mass
+        value="0.00388814503965923" />
+      <inertia
+        ixx="1.58984630611233E-06"
+        ixy="9.09167455720326E-28"
+        ixz="-3.54315137307759E-22"
+        iyy="1.58984630611233E-06"
+        iyz="2.64399188898146E-22"
+        izz="4.37416316961664E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/backleftspacers.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/backleftspacers.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="bls"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="backleftspacers" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="backrightspacers">
+    <inertial>
+      <origin
+        xyz="0.0532500000000004 -0.0506588672186605 0.0299999999999999"
+        rpy="0 0 0" />
+      <mass
+        value="0.00388814503965923" />
+      <inertia
+        ixx="1.58984630611233E-06"
+        ixy="1.0662054707651E-27"
+        ixz="-5.40106383225228E-22"
+        iyy="1.58984630611233E-06"
+        iyz="2.64399188898145E-22"
+        izz="4.37416316961664E-09" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/backrightspacers.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/backrightspacers.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="brs"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="backrightspacers" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="leftwheel">
+    <inertial>
+      <origin
+        xyz="0.0274980342522375 -0.00534185356148364 -7.02703907171642E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0607932288876856" />
+      <inertia
+        ixx="2.50028509614834E-05"
+        ixy="1.70499522621482E-06"
+        ixz="1.35136306213736E-08"
+        iyy="1.8099391106667E-05"
+        iyz="-2.39975858209663E-09"
+        izz="1.97971174221102E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/leftwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.694117647058824 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/leftwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lw"
+    type="revolute">
+    <origin
+      xyz="-0.09295 -0.014082 -0.018804"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="leftwheel" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="rightwheel">
+    <inertial>
+      <origin
+        xyz="-0.0274980342522375 -0.00534185356148448 7.02703907173308E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0607932288876853" />
+      <inertia
+        ixx="2.50028509614832E-05"
+        ixy="-1.70499522621455E-06"
+        ixz="1.35136306213615E-08"
+        iyy="1.80993911066668E-05"
+        iyz="2.39975858204511E-09"
+        izz="1.97971174221101E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/rightwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.694117647058824 0.0980392156862745 0.0980392156862745 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/rightwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rw"
+    type="revolute">
+    <origin
+      xyz="0.09295 -0.014082 -0.018802"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="rightwheel" />
+    <axis
+      xyz="-1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="pcb">
+    <inertial>
+      <origin
+        xyz="4.16333634234434E-16 -0.0124088672186606 0.0675"
+        rpy="0 0 0" />
+      <mass
+        value="0.077295504079052" />
+      <inertia
+        ixx="5.79765433004E-05"
+        ixy="1.22523312034787E-19"
+        ixz="3.33358847926229E-20"
+        iyy="0.000116868220351577"
+        iyz="4.56063546367063E-22"
+        izz="0.000174522699051648" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/pcb.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/pcb.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="pcb"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="pcb" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="frontdir">
+    <inertial>
+      <origin
+        xyz="2.77555756156289E-17 -1.66533453693773E-16 -0.00250000000000006"
+        rpy="0 0 0" />
+      <mass
+        value="0.0914673846752495" />
+      <inertia
+        ixx="0.000118970955119208"
+        ixy="1.21306507620299E-19"
+        ixz="3.43415310971301E-20"
+        iyy="0.000121228795854481"
+        iyz="6.41336059881976E-21"
+        izz="0.000239818636870876" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/frontdir.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://wallewithoutpcb1.SLDASM/meshes/frontdir.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fd"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="chassis" />
+    <child
+      link="frontdir" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
