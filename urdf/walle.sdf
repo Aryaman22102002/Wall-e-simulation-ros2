@@ -2,15 +2,15 @@
   <model name='walle'>
     <link name='chassis'>
       <inertial>
-        <pose>0 -0.004178 0.018952 0 -0 0</pose>
-        <mass>0.275783</mass>
+        <pose>-0.001268 -0.011789 0.024026 0 -0 0</pose>
+        <mass>0.276712</mass>
         <inertia>
-          <ixx>0.000602777</ixx>
-          <ixy>6.63764e-19</ixy>
-          <ixz>-1.37082e-18</ixz>
-          <iyy>0.000678047</iyy>
-          <iyz>4.86967e-05</iyz>
-          <izz>0.000730516</izz>
+          <ixx>0.000198861</ixx>
+          <ixy>-5.90117e-08</ixy>
+          <ixz>2.67344e-08</ixz>
+          <iyy>0.000268731</iyy>
+          <iyz>3.57178e-09</iyz>
+          <izz>0.000451291</izz>
         </inertia>
       </inertial>
       <collision name='chassis_collision'>
@@ -22,120 +22,12 @@
           </mesh>
         </geometry>
       </collision>
-      <collision name='chassis_fixed_joint_lump__backleftspacers_collision_1'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/backleftspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='chassis_fixed_joint_lump__backrightspacers_collision_2'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/backrightspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='chassis_fixed_joint_lump__frontdir_collision_3'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/frontdir.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='chassis_fixed_joint_lump__frontleftspacers_collision_4'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/frontleftspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='chassis_fixed_joint_lump__frontrightspacers_collision_5'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/frontrightspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <collision name='chassis_fixed_joint_lump__pcb_collision_6'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/pcb.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
       <visual name='chassis_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
             <uri>meshes/chassis.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name='chassis_fixed_joint_lump__backleftspacers_visual_1'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/backleftspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name='chassis_fixed_joint_lump__backrightspacers_visual_2'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/backrightspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name='chassis_fixed_joint_lump__frontdir_visual_3'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/frontdir.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name='chassis_fixed_joint_lump__frontleftspacers_visual_4'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/frontleftspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name='chassis_fixed_joint_lump__frontrightspacers_visual_5'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/frontrightspacers.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-      <visual name='chassis_fixed_joint_lump__pcb_visual_6'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/pcb.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -161,15 +53,15 @@
     <link name='leftwheel'>
       <pose relative_to='lw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.027498 -0.005342 -7e-05 0 -0 0</pose>
-        <mass>0.0607932</mass>
+        <pose>0.01031 1.1e-05 1e-06 0 -0 0</pose>
+        <mass>0.0297341</mass>
         <inertia>
-          <ixx>2.50029e-05</ixx>
-          <ixy>1.705e-06</ixy>
-          <ixz>1.35136e-08</ixz>
-          <iyy>1.80994e-05</iyy>
-          <iyz>-2.39976e-09</iyz>
-          <izz>1.97971e-05</izz>
+          <ixx>2.03788e-05</ixx>
+          <ixy>8.94081e-11</ixy>
+          <ixz>7.80138e-12</ixz>
+          <iyy>1.2291e-05</iyy>
+          <iyz>4.0244e-14</iyz>
+          <izz>1.22914e-05</izz>
         </inertia>
       </inertial>
       <collision name='leftwheel_collision'>
@@ -212,15 +104,15 @@
     <link name='rightwheel'>
       <pose relative_to='rw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.027498 -0.005342 7e-05 0 -0 0</pose>
-        <mass>0.0607932</mass>
+        <pose>-0.01031 1.1e-05 -1e-06 0 -0 0</pose>
+        <mass>0.0297341</mass>
         <inertia>
-          <ixx>2.50029e-05</ixx>
-          <ixy>-1.705e-06</ixy>
-          <ixz>1.35136e-08</ixz>
-          <iyy>1.80994e-05</iyy>
-          <iyz>2.39976e-09</iyz>
-          <izz>1.97971e-05</izz>
+          <ixx>2.03788e-05</ixx>
+          <ixy>-8.94081e-11</ixy>
+          <ixz>7.80138e-12</ixz>
+          <iyy>1.2291e-05</iyy>
+          <iyz>-4.02441e-14</iyz>
+          <izz>1.22914e-05</izz>
         </inertia>
       </inertial>
       <collision name='rightwheel_collision'>
