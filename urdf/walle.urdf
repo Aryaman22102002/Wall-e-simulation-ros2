@@ -3,22 +3,22 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="walle">
+  name="wallh">
   <link
     name="chassis">
     <inertial>
       <origin
-        xyz="-0.00126804659739602 -0.0117887579103803 0.0240255490150265"
+        xyz="5.61480223968264E-05 -0.0117064854462814 0.0238887509897539"
         rpy="0 0 0" />
       <mass
-        value="0.276711529585972" />
+        value="0.280599674625568" />
       <inertia
-        ixx="0.000198861438644785"
-        ixy="-5.90117142265181E-08"
-        ixz="2.67343649584226E-08"
-        iyy="0.000268730652600835"
-        iyz="3.57177926718277E-09"
-        izz="0.000451291011544134" />
+        ixx="0.000200451284950895"
+        ixy="-5.9011714217354E-08"
+        ixz="2.67343649586141E-08"
+        iyy="0.000270320498906944"
+        iyz="3.57177926688131E-09"
+        izz="0.000451295385707299" />
     </inertial>
     <visual>
       <origin
@@ -26,12 +26,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://walle/meshes/chassis.STL" />
+          filename="package://wallh/meshes/chassis.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.650980392156863 0.619607843137255 0.588235294117647 1" />
+          rgba="0.694117647058824 0.0980392156862745 0.0980392156862745 1" />
       </material>
     </visual>
     <collision>
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://walle/meshes/chassis.STL" />
+          filename="package://wallh/meshes/chassis.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,16 +48,16 @@
     name="leftwheel">
     <inertial>
       <origin
-        xyz="0.0103100246686698 1.06509132219434E-05 9.30868135684548E-07"
+        xyz="-0.0163899753313301 2.83848577531387E-07 2.48149572834588E-08"
         rpy="0 0 0" />
       <mass
-        value="0.0297341396000603" />
+        value="0.0297341396000601" />
       <inertia
-        ixx="2.03788362309298E-05"
-        ixy="8.9408123937843E-11"
-        ixz="7.80138444705178E-12"
-        iyy="1.22910336664369E-05"
-        iyz="4.02440096492173E-14"
+        ixx="2.03788362309296E-05"
+        ixy="8.94081239139364E-11"
+        ixz="7.80138441286818E-12"
+        iyy="1.22910336664367E-05"
+        iyz="4.02440932499312E-14"
         izz="1.2291388839289E-05" />
     </inertial>
     <visual>
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://walle/meshes/leftwheel.STL" />
+          filename="package://wallh/meshes/leftwheel.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://walle/meshes/leftwheel.STL" />
+          filename="package://wallh/meshes/leftwheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -88,7 +88,7 @@
     name="lw"
     type="revolute">
     <origin
-      xyz="-0.09295 -0.014082 -0.018804"
+      xyz="-0.06625 -0.014071 -0.018803"
       rpy="0 0 0" />
     <parent
       link="chassis" />
@@ -99,24 +99,24 @@
     <limit
       lower="0"
       upper="0"
-      effort="1"
-      velocity="1" />
+      effort="100"
+      velocity="100" />
   </joint>
   <link
     name="rightwheel">
     <inertial>
       <origin
-        xyz="-0.01031002466867 1.06509132214994E-05 -9.30868135351481E-07"
+        xyz="0.0163899753313302 2.83848578030987E-07 -2.48149572834588E-08"
         rpy="0 0 0" />
       <mass
-        value="0.02973413960006" />
+        value="0.0297341396000606" />
       <inertia
-        ixx="2.03788362309296E-05"
-        ixy="-8.94081236255837E-11"
-        ixz="7.80138443121546E-12"
-        iyy="1.22910336664368E-05"
-        iyz="-4.02440633438432E-14"
-        izz="1.22913888392889E-05" />
+        ixx="2.03788362309299E-05"
+        ixy="-8.94081236634122E-11"
+        ixz="7.80138440688054E-12"
+        iyy="1.22910336664369E-05"
+        iyz="-4.0244155905073E-14"
+        izz="1.22913888392891E-05" />
     </inertial>
     <visual>
       <origin
@@ -124,7 +124,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://walle/meshes/rightwheel.STL" />
+          filename="package://wallh/meshes/rightwheel.STL" />
       </geometry>
       <material
         name="">
@@ -138,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://walle/meshes/rightwheel.STL" />
+          filename="package://wallh/meshes/rightwheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -146,7 +146,7 @@
     name="rw"
     type="revolute">
     <origin
-      xyz="0.09295 -0.014082 -0.018802"
+      xyz="0.06625 -0.014071 -0.018803"
       rpy="0 0 0" />
     <parent
       link="chassis" />
@@ -157,7 +157,7 @@
     <limit
       lower="0"
       upper="0"
-      effort="1"
-      velocity="1" />
+      effort="100"
+      velocity="100" />
   </joint>
 </robot>

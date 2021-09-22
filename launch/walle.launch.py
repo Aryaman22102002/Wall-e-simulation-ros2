@@ -20,6 +20,7 @@ def generate_launch_description():
     world_prefix = get_package_share_directory("my_bot")
     world_file = os.path.join(world_prefix, "worlds", "white.world")
 
+
     return LaunchDescription(
         [
             ExecuteProcess(
@@ -29,7 +30,7 @@ def generate_launch_description():
                     "libgazebo_ros_init.so",
                     "-s",
                     "libgazebo_ros_factory.so",
-                    world_file,
+                     world_file,
                 ],
                 output="screen",
                 additional_env=env,
