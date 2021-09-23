@@ -2,15 +2,15 @@
   <model name='walle'>
     <link name='chassis'>
       <inertial>
-        <pose>5.6e-05 -0.011706 0.023889 0 -0 0</pose>
-        <mass>20.806</mass>
+        <pose>5.6e-05 -0.011704 0.02393 0 -0 0</pose>
+        <mass>5</mass>
         <inertia>
-          <ixx>0.000200451</ixx>
-          <ixy>-5.90117e-08</ixy>
-          <ixz>2.67344e-08</ixz>
-          <iyy>0.00027032</iyy>
-          <iyz>3.57178e-09</iyz>
-          <izz>0.000451295</izz>
+          <ixx>0.00020038</ixx>
+          <ixy>-5.9012e-08</ixy>
+          <ixz>2.6652e-08</ixz>
+          <iyy>0.0002702</iyy>
+          <iyz>3.5718e-09</iyz>
+          <izz>0.00045111</izz>
         </inertia>
       </inertial>
       <collision name='chassis_collision'>
@@ -32,17 +32,68 @@
         </geometry>
       </visual>
     </link>
-    <joint name='lw' type='revolute'>
-      <pose relative_to='chassis'>-0.06625 -0.014071 -0.018803 0 -0 0</pose>
+    <joint name='ls' type='revolute'>
+      <pose relative_to='chassis'>-0.06675 -0.014071 -0.018803 0 -0 0</pose>
       <parent>chassis</parent>
+      <child>leftshaft</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='leftshaft'>
+      <pose relative_to='ls'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>-0.0094 0 0 0 -0 0</pose>
+        <mass>0.00040732</mass>
+        <inertia>
+          <ixx>1.7126e-09</ixx>
+          <ixy>-2.1519e-24</ixy>
+          <ixz>-3.9881e-24</ixz>
+          <iyy>1.7676e-08</iyy>
+          <iyz>-4.3067e-10</iyz>
+          <izz>1.7706e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='leftshaft_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/leftshaft.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='leftshaft_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/leftshaft.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='lw' type='revolute'>
+      <pose relative_to='leftshaft'>0 0 0 0 -0 0</pose>
+      <parent>leftshaft</parent>
       <child>leftwheel</child>
       <axis>
         <xyz>-1 0 0</xyz>
         <limit>
           <lower>0</lower>
           <upper>0</upper>
-          <effort>10000</effort>
-          <velocity>10000</velocity>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -53,15 +104,15 @@
     <link name='leftwheel'>
       <pose relative_to='lw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.01639 0 0 0 -0 0</pose>
-        <mass>0.0297341</mass>
+        <pose>-0.01829 8e-06 -7e-06 0 -0 0</pose>
+        <mass>0.29734</mass>
         <inertia>
-          <ixx>2.03788e-05</ixx>
-          <ixy>8.94081e-11</ixy>
-          <ixz>7.80138e-12</ixz>
+          <ixx>2.0379e-05</ixx>
+          <ixy>6.7734e-11</ixy>
+          <ixz>-5.8879e-11</ixz>
           <iyy>1.2291e-05</iyy>
-          <iyz>4.02441e-14</iyz>
-          <izz>1.22914e-05</izz>
+          <iyz>1.7748e-10</iyz>
+          <izz>1.2291e-05</izz>
         </inertia>
       </inertial>
       <collision name='leftwheel_collision'>
@@ -83,17 +134,68 @@
         </geometry>
       </visual>
     </link>
-    <joint name='rw' type='revolute'>
-      <pose relative_to='chassis'>0.06625 -0.014071 -0.018803 0 -0 0</pose>
+    <joint name='rs' type='revolute'>
+      <pose relative_to='chassis'>0.06675 -0.014071 -0.018803 0 -0 0</pose>
       <parent>chassis</parent>
+      <child>rightshaft</child>
+      <axis>
+        <xyz>-1 0 0</xyz>
+        <limit>
+          <lower>0</lower>
+          <upper>0</upper>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='rightshaft'>
+      <pose relative_to='rs'>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose>0.0094 0 -0 0 -0 0</pose>
+        <mass>0.00040732</mass>
+        <inertia>
+          <ixx>1.7126e-09</ixx>
+          <ixy>-4.9471e-22</ixy>
+          <ixz>-1.4222e-23</ixz>
+          <iyy>1.7676e-08</iyy>
+          <iyz>4.3067e-10</iyz>
+          <izz>1.7706e-08</izz>
+        </inertia>
+      </inertial>
+      <collision name='rightshaft_collision'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rightshaft.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='rightshaft_visual'>
+        <pose>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>meshes/rightshaft.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='rw' type='revolute'>
+      <pose relative_to='rightshaft'>0 0 0 0 -0 0</pose>
+      <parent>rightshaft</parent>
       <child>rightwheel</child>
       <axis>
         <xyz>-1 0 0</xyz>
         <limit>
           <lower>0</lower>
           <upper>0</upper>
-          <effort>10000</effort>
-          <velocity>10000</velocity>
+          <effort>1000</effort>
+          <velocity>1000</velocity>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -104,15 +206,15 @@
     <link name='rightwheel'>
       <pose relative_to='rw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.01639 0 -0 0 -0 0</pose>
-        <mass>0.0297341</mass>
+        <pose>0.01829 8e-06 7e-06 0 -0 0</pose>
+        <mass>0.29734</mass>
         <inertia>
-          <ixx>2.03788e-05</ixx>
-          <ixy>-8.94081e-11</ixy>
-          <ixz>7.80138e-12</ixz>
+          <ixx>2.0379e-05</ixx>
+          <ixy>-6.7734e-11</ixy>
+          <ixz>-5.8879e-11</ixz>
           <iyy>1.2291e-05</iyy>
-          <iyz>-4.02442e-14</iyz>
-          <izz>1.22914e-05</izz>
+          <iyz>-1.7748e-10</iyz>
+          <izz>1.2291e-05</izz>
         </inertia>
       </inertial>
       <collision name='rightwheel_collision'>
