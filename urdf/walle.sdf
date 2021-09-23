@@ -54,7 +54,7 @@
       <pose relative_to='ls'>0 0 0 0 -0 0</pose>
       <inertial>
         <pose>-0.0094 0 0 0 -0 0</pose>
-        <mass>0.00040732</mass>
+        <mass>0.1</mass>
         <inertia>
           <ixx>1.7126e-09</ixx>
           <ixy>-2.1519e-24</ixy>
@@ -84,7 +84,7 @@
       </visual>
     </link>
     <joint name='lw' type='revolute'>
-      <pose relative_to='leftshaft'>0 0 0 0 -0 0</pose>
+      <pose relative_to='leftshaft'>-0.0103 -0.001112 0.001151 0 -0 0</pose>
       <parent>leftshaft</parent>
       <child>leftwheel</child>
       <axis>
@@ -104,8 +104,8 @@
     <link name='leftwheel'>
       <pose relative_to='lw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.01829 8e-06 -7e-06 0 -0 0</pose>
-        <mass>0.29734</mass>
+        <pose>-0.00799 0.00112 -0.001158 0 -0 0</pose>
+        <mass>0.4</mass>
         <inertia>
           <ixx>2.0379e-05</ixx>
           <ixy>6.7734e-11</ixy>
@@ -156,11 +156,11 @@
       <pose relative_to='rs'>0 0 0 0 -0 0</pose>
       <inertial>
         <pose>0.0094 0 -0 0 -0 0</pose>
-        <mass>0.00040732</mass>
+        <mass>0.1</mass>
         <inertia>
           <ixx>1.7126e-09</ixx>
-          <ixy>-4.9471e-22</ixy>
-          <ixz>-1.4222e-23</ixz>
+          <ixy>-4.9472e-22</ixy>
+          <ixz>-1.4227e-23</ixz>
           <iyy>1.7676e-08</iyy>
           <iyz>4.3067e-10</iyz>
           <izz>1.7706e-08</izz>
@@ -186,7 +186,7 @@
       </visual>
     </link>
     <joint name='rw' type='revolute'>
-      <pose relative_to='rightshaft'>0 0 0 0 -0 0</pose>
+      <pose relative_to='rightshaft'>0.009011 0 0 0 -0 0</pose>
       <parent>rightshaft</parent>
       <child>rightwheel</child>
       <axis>
@@ -206,8 +206,8 @@
     <link name='rightwheel'>
       <pose relative_to='rw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.01829 8e-06 7e-06 0 -0 0</pose>
-        <mass>0.29734</mass>
+        <pose>0.009279 8e-06 7e-06 0 -0 0</pose>
+        <mass>0.4</mass>
         <inertia>
           <ixx>2.0379e-05</ixx>
           <ixy>-6.7734e-11</ixy>
