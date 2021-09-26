@@ -3,7 +3,7 @@
     <link name='chassis'>
       <inertial>
         <pose>5.6e-05 -0.011704 0.02393 0 -0 0</pose>
-        <mass>5</mass>
+        <mass>0.75</mass>
         <inertia>
           <ixx>0.00020038</ixx>
           <ixy>-5.9012e-08</ixy>
@@ -33,7 +33,7 @@
       </visual>
     </link>
     <joint name='ls' type='revolute'>
-      <pose relative_to='chassis'>-0.06675 -0.014071 -0.018803 0 -0 0</pose>
+      <pose relative_to='chassis'>-0.06575 -0.014071 -0.018803 0 -0 0</pose>
       <parent>chassis</parent>
       <child>leftshaft</child>
       <axis>
@@ -53,12 +53,12 @@
     <link name='leftshaft'>
       <pose relative_to='ls'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.0094 0 0 0 -0 0</pose>
-        <mass>0.1</mass>
+        <pose>-0.0104 -0 0 0 -0 0</pose>
+        <mass>0.005</mass>
         <inertia>
           <ixx>1.7126e-09</ixx>
-          <ixy>-2.1519e-24</ixy>
-          <ixz>-3.9881e-24</ixz>
+          <ixy>-2.9291e-22</ixy>
+          <ixz>3.976e-22</ixz>
           <iyy>1.7676e-08</iyy>
           <iyz>-4.3067e-10</iyz>
           <izz>1.7706e-08</izz>
@@ -84,7 +84,7 @@
       </visual>
     </link>
     <joint name='lw' type='revolute'>
-      <pose relative_to='leftshaft'>-0.0103 -0.001112 0.001151 0 -0 0</pose>
+      <pose relative_to='leftshaft'>-0.0216 0 0 0 -0 0</pose>
       <parent>leftshaft</parent>
       <child>leftwheel</child>
       <axis>
@@ -104,8 +104,8 @@
     <link name='leftwheel'>
       <pose relative_to='lw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.00799 0.00112 -0.001158 0 -0 0</pose>
-        <mass>0.4</mass>
+        <pose>0.00231 8e-06 -7e-06 0 -0 0</pose>
+        <mass>0.03</mass>
         <inertia>
           <ixx>2.0379e-05</ixx>
           <ixy>6.7734e-11</ixy>
@@ -135,11 +135,11 @@
       </visual>
     </link>
     <joint name='rs' type='revolute'>
-      <pose relative_to='chassis'>0.06675 -0.014071 -0.018803 0 -0 0</pose>
+      <pose relative_to='chassis'>0.06575 -0.014071 -0.018803 0 -0 0</pose>
       <parent>chassis</parent>
       <child>rightshaft</child>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>1 0 0</xyz>
         <limit>
           <lower>0</lower>
           <upper>0</upper>
@@ -155,12 +155,12 @@
     <link name='rightshaft'>
       <pose relative_to='rs'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.0094 0 -0 0 -0 0</pose>
-        <mass>0.1</mass>
+        <pose>0.0104 0 -0 0 -0 0</pose>
+        <mass>0.005</mass>
         <inertia>
           <ixx>1.7126e-09</ixx>
-          <ixy>-4.9472e-22</ixy>
-          <ixz>-1.4227e-23</ixz>
+          <ixy>-7.6673e-22</ixy>
+          <ixz>3.8142e-22</ixz>
           <iyy>1.7676e-08</iyy>
           <iyz>4.3067e-10</iyz>
           <izz>1.7706e-08</izz>
@@ -186,11 +186,11 @@
       </visual>
     </link>
     <joint name='rw' type='revolute'>
-      <pose relative_to='rightshaft'>0.009011 0 0 0 -0 0</pose>
+      <pose relative_to='rightshaft'>0.0216 0 0 0 -0 0</pose>
       <parent>rightshaft</parent>
       <child>rightwheel</child>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>1 0 0</xyz>
         <limit>
           <lower>0</lower>
           <upper>0</upper>
@@ -206,8 +206,8 @@
     <link name='rightwheel'>
       <pose relative_to='rw'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.009279 8e-06 7e-06 0 -0 0</pose>
-        <mass>0.4</mass>
+        <pose>-0.00231 8e-06 7e-06 0 -0 0</pose>
+        <mass>0.03</mass>
         <inertia>
           <ixx>2.0379e-05</ixx>
           <ixy>-6.7734e-11</ixy>
@@ -236,5 +236,83 @@
         </geometry>
       </visual>
     </link>
+    
+    <link name="imu_link">
+    <visual name="imu_link_visual">
+      <geometry>
+        <box> 
+         <size> 0.005 0.005 0.005 </size>
+        </box>
+      </geometry>
+    </visual>
+     <inertial>
+        <mass>0.001</mass>
+        <inertia>
+          <ixx>0.00005</ixx>
+          <ixy>0.00005</ixy>
+          <ixz>-0.00005</ixz>
+          <iyy>0.00005</iyy>
+          <iyz>-0.00005</iyz>
+          <izz>0.00005</izz>
+        </inertia>
+      </inertial>
+    
+    <collision name="imu_link_collision">
+      <geometry>
+        <box> 
+         <size> 0.005 0.005 0.005 </size>
+        </box>
+      </geometry>
+    </collision>
+  </link>
+    
+  <joint name="imu_joint" type="fixed">
+    <parent>chassis</parent>
+    <child>imu_link</child>
+    <axis>
+        <xyz>-1 0 0</xyz>
+    </axis>
+  </joint>
+  
+  
+  <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
+    <ros>
+      <namespace>/demo</namespace>
+    </ros>
+	<alwaysOn>true</alwaysOn>
+	<bodyName>base_footprint</bodyName>
+	<topicName>imu</topicName>
+	<serviceName>imu_service</serviceName>
+	<gaussianNoise>0.0</gaussianNoise>
+	<updateRate>20.0</updateRate>
+</plugin>
+ 
+     
+  
+  <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+    <ros>
+      <namespace>/demo</namespace>
+    </ros>
+
+    <!-- wheels -->
+    <left_joint>lw</left_joint>
+    <right_joint>rw</right_joint>
+
+    <!-- kinematics -->
+    <wheel_separation>0.1335</wheel_separation>
+    <wheel_diameter>0.057</wheel_diameter>
+
+    <!-- limits -->
+    <max_wheel_torque>20</max_wheel_torque>
+    <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+    <!-- output -->
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <publish_wheel_tf>true</publish_wheel_tf>
+
+    <odometry_frame>odom</odometry_frame>
+    <robot_base_frame>chassis</robot_base_frame>
+  </plugin>
   </model>
 </sdf>

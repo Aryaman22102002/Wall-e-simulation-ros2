@@ -3,7 +3,7 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="a">
+  name="aaa">
   <link
     name="chassis">
     <inertial>
@@ -11,7 +11,7 @@
         xyz="5.6202E-05 -0.011704 0.02393"
         rpy="0 0 0" />
       <mass
-        value="5" />
+        value="0.75" />
       <inertia
         ixx="0.00020038"
         ixy="-5.9012E-08"
@@ -26,12 +26,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/chassis.STL" />
+          filename="package://aaa/meshes/chassis.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0.69412 0.098039 0.098039 1" />
+          rgba="0 1 0 1" />
       </material>
     </visual>
     <collision>
@@ -40,7 +40,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/chassis.STL" />
+          filename="package://aaa/meshes/chassis.STL" />
       </geometry>
     </collision>
   </link>
@@ -48,14 +48,14 @@
     name="leftshaft">
     <inertial>
       <origin
-        xyz="-0.0094004 0 5.5511E-17"
+        xyz="-0.0104 -1.8041E-16 2.7756E-16"
         rpy="0 0 0" />
       <mass
-        value="0.1" />
+        value="0.005" />
       <inertia
         ixx="1.7126E-09"
-        ixy="-2.1519E-24"
-        ixz="-3.9881E-24"
+        ixy="-2.9291E-22"
+        ixz="3.976E-22"
         iyy="1.7676E-08"
         iyz="-4.3067E-10"
         izz="1.7706E-08" />
@@ -66,7 +66,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/leftshaft.STL" />
+          filename="package://aaa/meshes/leftshaft.STL" />
       </geometry>
       <material
         name="">
@@ -80,7 +80,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/leftshaft.STL" />
+          filename="package://aaa/meshes/leftshaft.STL" />
       </geometry>
     </collision>
   </link>
@@ -88,7 +88,7 @@
     name="ls"
     type="revolute">
     <origin
-      xyz="-0.06675 -0.014071 -0.018803"
+      xyz="-0.06575 -0.014071 -0.018803"
       rpy="0 0 0" />
     <parent
       link="chassis" />
@@ -106,10 +106,10 @@
     name="leftwheel">
     <inertial>
       <origin
-        xyz="-0.00799 0.0011198 -0.0011577"
+        xyz="0.00231 8.0701E-06 -7.013E-06"
         rpy="0 0 0" />
       <mass
-        value="0.4" />
+        value="0.03" />
       <inertia
         ixx="2.0379E-05"
         ixy="6.7734E-11"
@@ -124,7 +124,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/leftwheel.STL" />
+          filename="package://aaa/meshes/leftwheel.STL" />
       </geometry>
       <material
         name="">
@@ -138,7 +138,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/leftwheel.STL" />
+          filename="package://aaa/meshes/leftwheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -146,7 +146,7 @@
     name="lw"
     type="revolute">
     <origin
-      xyz="-0.0103 -0.0011117 0.0011507"
+      xyz="-0.0216 0 0"
       rpy="0 0 0" />
     <parent
       link="leftshaft" />
@@ -164,14 +164,14 @@
     name="rightshaft">
     <inertial>
       <origin
-        xyz="0.0094004 2.7756E-16 -2.7756E-17"
+        xyz="0.0104 4.8572E-16 -2.498E-16"
         rpy="0 0 0" />
       <mass
-        value="0.1" />
+        value="0.005" />
       <inertia
         ixx="1.7126E-09"
-        ixy="-4.9472E-22"
-        ixz="-1.4227E-23"
+        ixy="-7.6673E-22"
+        ixz="3.8142E-22"
         iyy="1.7676E-08"
         iyz="4.3067E-10"
         izz="1.7706E-08" />
@@ -182,7 +182,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/rightshaft.STL" />
+          filename="package://aaa/meshes/rightshaft.STL" />
       </geometry>
       <material
         name="">
@@ -196,7 +196,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/rightshaft.STL" />
+          filename="package://aaa/meshes/rightshaft.STL" />
       </geometry>
     </collision>
   </link>
@@ -204,14 +204,14 @@
     name="rs"
     type="revolute">
     <origin
-      xyz="0.06675 -0.014071 -0.018803"
+      xyz="0.06575 -0.014071 -0.018803"
       rpy="0 0 0" />
     <parent
       link="chassis" />
     <child
       link="rightshaft" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
     <limit
       lower="0"
       upper="0"
@@ -222,10 +222,10 @@
     name="rightwheel">
     <inertial>
       <origin
-        xyz="0.0092792 8.0701E-06 7.013E-06"
+        xyz="-0.00231 8.0701E-06 7.013E-06"
         rpy="0 0 0" />
       <mass
-        value="0.4" />
+        value="0.03" />
       <inertia
         ixx="2.0379E-05"
         ixy="-6.7734E-11"
@@ -240,7 +240,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/rightwheel.STL" />
+          filename="package://aaa/meshes/rightwheel.STL" />
       </geometry>
       <material
         name="">
@@ -254,7 +254,7 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://a/meshes/rightwheel.STL" />
+          filename="package://aaa/meshes/rightwheel.STL" />
       </geometry>
     </collision>
   </link>
@@ -262,14 +262,14 @@
     name="rw"
     type="revolute">
     <origin
-      xyz="0.0090108 0 0"
+      xyz="0.0216 0 0"
       rpy="0 0 0" />
     <parent
       link="rightshaft" />
     <child
       link="rightwheel" />
     <axis
-      xyz="-1 0 0" />
+      xyz="1 0 0" />
     <limit
       lower="0"
       upper="0"
