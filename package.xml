@@ -10,6 +10,8 @@
   <buildtool_depend>ament_cmake</buildtool_depend>
   <depend>geometry_msgs</depend>
   <depend>sensor_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
   <build_depend>rosidl_default_generators</build_depend>
   <exec_depend>joint_state_publisher</exec_depend>
   <exec_depend>joint_state_publisher_gui</exec_depend>
@@ -19,7 +21,7 @@
   <exec_depend>gazebo_ros</exec_depend>
   <exec_depend>ros2launch</exec_depend>
   <exec_depend>walle_description</exec_depend>
-
+  <exec_depend>rviz</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>

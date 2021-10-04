@@ -1,48 +1,210 @@
 <sdf version='1.7'>
   <model name='walle'>
-    <link name='chassis'>
+    <link name='base_link'>
       <inertial>
-        <pose>5.6e-05 -0.011704 0.02393 0 -0 0</pose>
-        <mass>0.75</mass>
+        <pose>-0 0 -0.0025 0 -0 0</pose>
+        <mass>0.0915522</mass>
         <inertia>
-          <ixx>0.00020038</ixx>
-          <ixy>-5.9012e-08</ixy>
-          <ixz>2.6652e-08</ixz>
-          <iyy>0.0002702</iyy>
-          <iyz>3.5718e-09</iyz>
-          <izz>0.00045111</izz>
+          <ixx>0.000121426</ixx>
+          <ixy>1.28749e-19</ixy>
+          <ixz>2.00583e-22</ixz>
+          <iyy>0.000118984</iyy>
+          <iyz>-4.40398e-24</iyz>
+          <izz>0.000240029</izz>
         </inertia>
       </inertial>
-      <collision name='chassis_collision'>
+      <collision name='base_link_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/chassis.STL</uri>
+            <uri>meshes/base_link.STL</uri>
           </mesh>
         </geometry>
       </collision>
-      <visual name='chassis_visual'>
+      <collision name='base_link_fixed_joint_lump__camera_link_collision_1'>
+        <pose>0 0 -0.0025 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.007 0.007 0.007</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__imu_link_collision_2'>
+        <pose>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.005 0.005 0.005</size>
+          </box>
+        </geometry>
+        <surface>
+          <contact>
+            <ode/>
+          </contact>
+          <friction>
+            <ode/>
+          </friction>
+        </surface>
+      </collision>
+      <visual name='base_link_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/chassis.STL</uri>
+            <uri>meshes/base_link.STL</uri>
           </mesh>
         </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Yellow</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
       </visual>
+      <visual name='base_link_fixed_joint_lump__camera_link_visual_1'>
+        <pose>-0 0 -0.005 0 -0 0</pose>
+        <geometry>
+          <box>
+            <size>0.007 0.007 0.007</size>
+          </box>
+        </geometry>
+         <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__imu_link_visual_2'>
+        <pose>0 0 0.01 0 -0 0</pose>
+        <geometry>
+          <box>
+             <size>0.005 0.005 0.005</size>
+          </box>
+        </geometry>
+      </visual>
+      <sensor name='camera1' type='camera'>
+        <update_rate>30</update_rate>
+        <camera name='head'>
+          <horizontal_fov>1.39626</horizontal_fov>
+          <image>
+            <width>2</width>
+            <height>1</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.02</near>
+            <far>300</far>
+          </clip>
+          <noise>
+            <type>gaussian</type>
+            <mean>0</mean>
+            <stddev>0.007</stddev>
+          </noise>
+        </camera>
+        <plugin name='camera_controller' filename='libgazebo_ros_camera.so'>
+          <alwaysOn>1</alwaysOn>
+          <updateRate>100</updateRate>
+          <cameraName>rrbot/camera1</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>camera_link</frameName>
+          <hackBaseline>0.07</hackBaseline>
+          <distortionK1>0.0</distortionK1>
+          <distortionK2>0.0</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>0.0</distortionT1>
+          <distortionT2>0.0</distortionT2>
+        </plugin>
+        <pose>0 0 0 0 -0 0</pose>
+      </sensor>
+      <sensor name='imu_sensor' type='imu'>
+        <plugin name='imu_plugin' filename='libgazebo_ros_imu_sensor.so'>
+          <ros>
+            <namespace>/demo</namespace>
+            <remapping>~/out:=imu</remapping>
+          </ros>
+          <initial_orientation_as_reference>0</initial_orientation_as_reference>
+        </plugin>
+        <always_on>1</always_on>
+        <update_rate>100</update_rate>
+        <visualize>1</visualize>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.0002</stddev>
+                <bias_mean>7.5e-06</bias_mean>
+                <bias_stddev>8e-07</bias_stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.0002</stddev>
+                <bias_mean>7.5e-06</bias_mean>
+                <bias_stddev>8e-07</bias_stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.0002</stddev>
+                <bias_mean>7.5e-06</bias_mean>
+                <bias_stddev>8e-07</bias_stddev>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.017</stddev>
+                <bias_mean>0.1</bias_mean>
+                <bias_stddev>0.001</bias_stddev>
+              </noise>
+            </x>
+            <y>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.017</stddev>
+                <bias_mean>0.1</bias_mean>
+                <bias_stddev>0.001</bias_stddev>
+              </noise>
+            </y>
+            <z>
+              <noise type='gaussian'>
+                <mean>0</mean>
+                <stddev>0.017</stddev>
+                <bias_mean>0.1</bias_mean>
+                <bias_stddev>0.001</bias_stddev>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+        <pose>0 0 0.01 0 -0 0</pose>
+      </sensor>
     </link>
-    <joint name='ls' type='revolute'>
-      <pose relative_to='chassis'>-0.06575 -0.014071 -0.018803 0 -0 0</pose>
-      <parent>chassis</parent>
-      <child>leftshaft</child>
+    <joint name='leftjoint' type='revolute'>
+      <pose relative_to='base_link'>-0.00545 0.10601 -0.017901 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>leftlink</child>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>1000</effort>
-          <velocity>1000</velocity>
+          <effort>1</effort>
+          <velocity>1</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -50,50 +212,50 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='leftshaft'>
-      <pose relative_to='ls'>0 0 0 0 -0 0</pose>
+    <link name='leftlink'>
+      <pose relative_to='leftjoint'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>-0.0104 -0 0 0 -0 0</pose>
-        <mass>0.005</mass>
+        <pose>0 -0.01231 0 0 -0 0</pose>
+        <mass>0.0297341</mass>
         <inertia>
-          <ixx>1.7126e-09</ixx>
-          <ixy>-2.9291e-22</ixy>
-          <ixz>3.976e-22</ixz>
-          <iyy>1.7676e-08</iyy>
-          <iyz>-4.3067e-10</iyz>
-          <izz>1.7706e-08</izz>
+          <ixx>1.22913e-05</ixx>
+          <ixy>-4.10833e-11</ixy>
+          <ixz>-1.60252e-10</ixz>
+          <iyy>2.03788e-05</iyy>
+          <iyz>-7.97922e-11</iyz>
+          <izz>1.22911e-05</izz>
         </inertia>
       </inertial>
-      <collision name='leftshaft_collision'>
+      <collision name='leftlink_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftshaft.STL</uri>
+            <uri>meshes/leftlink.STL</uri>
           </mesh>
         </geometry>
       </collision>
-      <visual name='leftshaft_visual'>
+      <visual name='leftlink_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftshaft.STL</uri>
+            <uri>meshes/leftlink.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name='lw' type='revolute'>
-      <pose relative_to='leftshaft'>-0.0216 0 0 0 -0 0</pose>
-      <parent>leftshaft</parent>
-      <child>leftwheel</child>
+    <joint name='rightjoint' type='revolute'>
+      <pose relative_to='base_link'>-0.006345 -0.10601 -0.017901 0 -0 0</pose>
+      <parent>base_link</parent>
+      <child>rightlink</child>
       <axis>
-        <xyz>-1 0 0</xyz>
+        <xyz>0 1 0</xyz>
         <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>1000</effort>
-          <velocity>1000</velocity>
+          <effort>1</effort>
+          <velocity>1</velocity>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
         </limit>
         <dynamics>
           <spring_reference>0</spring_reference>
@@ -101,218 +263,55 @@
         </dynamics>
       </axis>
     </joint>
-    <link name='leftwheel'>
-      <pose relative_to='lw'>0 0 0 0 -0 0</pose>
+    <link name='rightlink'>
+      <pose relative_to='rightjoint'>0 0 0 0 -0 0</pose>
       <inertial>
-        <pose>0.00231 8e-06 -7e-06 0 -0 0</pose>
-        <mass>0.03</mass>
+        <pose>0 0.01231 -0 0 -0 0</pose>
+        <mass>0.0297341</mass>
         <inertia>
-          <ixx>2.0379e-05</ixx>
-          <ixy>6.7734e-11</ixy>
-          <ixz>-5.8879e-11</ixz>
-          <iyy>1.2291e-05</iyy>
-          <iyz>1.7748e-10</iyz>
-          <izz>1.2291e-05</izz>
+          <ixx>1.22913e-05</ixx>
+          <ixy>4.10833e-11</ixy>
+          <ixz>1.60252e-10</ixz>
+          <iyy>2.03788e-05</iyy>
+          <iyz>-7.97922e-11</iyz>
+          <izz>1.22911e-05</izz>
         </inertia>
       </inertial>
-      <collision name='leftwheel_collision'>
+      <collision name='rightlink_collision'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftwheel.STL</uri>
+            <uri>meshes/rightlink.STL</uri>
           </mesh>
         </geometry>
       </collision>
-      <visual name='leftwheel_visual'>
+      <visual name='rightlink_visual'>
         <pose>0 0 0 0 -0 0</pose>
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftwheel.STL</uri>
+            <uri>meshes/rightlink.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
-    <joint name='rs' type='revolute'>
-      <pose relative_to='chassis'>0.06575 -0.014071 -0.018803 0 -0 0</pose>
-      <parent>chassis</parent>
-      <child>rightshaft</child>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>1000</effort>
-          <velocity>1000</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-      </axis>
-    </joint>
-    <link name='rightshaft'>
-      <pose relative_to='rs'>0 0 0 0 -0 0</pose>
-      <inertial>
-        <pose>0.0104 0 -0 0 -0 0</pose>
-        <mass>0.005</mass>
-        <inertia>
-          <ixx>1.7126e-09</ixx>
-          <ixy>-7.6673e-22</ixy>
-          <ixz>3.8142e-22</ixz>
-          <iyy>1.7676e-08</iyy>
-          <iyz>4.3067e-10</iyz>
-          <izz>1.7706e-08</izz>
-        </inertia>
-      </inertial>
-      <collision name='rightshaft_collision'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/rightshaft.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='rightshaft_visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/rightshaft.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    <joint name='rw' type='revolute'>
-      <pose relative_to='rightshaft'>0.0216 0 0 0 -0 0</pose>
-      <parent>rightshaft</parent>
-      <child>rightwheel</child>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>1000</effort>
-          <velocity>1000</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-      </axis>
-    </joint>
-    <link name='rightwheel'>
-      <pose relative_to='rw'>0 0 0 0 -0 0</pose>
-      <inertial>
-        <pose>-0.00231 8e-06 7e-06 0 -0 0</pose>
-        <mass>0.03</mass>
-        <inertia>
-          <ixx>2.0379e-05</ixx>
-          <ixy>-6.7734e-11</ixy>
-          <ixz>-5.8879e-11</ixz>
-          <iyy>1.2291e-05</iyy>
-          <iyz>-1.7748e-10</iyz>
-          <izz>1.2291e-05</izz>
-        </inertia>
-      </inertial>
-      <collision name='rightwheel_collision'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/rightwheel.STL</uri>
-          </mesh>
-        </geometry>
-      </collision>
-      <visual name='rightwheel_visual'>
-        <pose>0 0 0 0 -0 0</pose>
-        <geometry>
-          <mesh>
-            <scale>1 1 1</scale>
-            <uri>meshes/rightwheel.STL</uri>
-          </mesh>
-        </geometry>
-      </visual>
-    </link>
-    
-    <link name="imu_link">
-    <visual name="imu_link_visual">
-      <geometry>
-        <box> 
-         <size> 0.005 0.005 0.005 </size>
-        </box>
-      </geometry>
-    </visual>
-     <inertial>
-        <mass>0.001</mass>
-        <inertia>
-          <ixx>0.00005</ixx>
-          <ixy>0.00005</ixy>
-          <ixz>-0.00005</ixz>
-          <iyy>0.00005</iyy>
-          <iyz>-0.00005</iyz>
-          <izz>0.00005</izz>
-        </inertia>
-      </inertial>
-    
-    <collision name="imu_link_collision">
-      <geometry>
-        <box> 
-         <size> 0.005 0.005 0.005 </size>
-        </box>
-      </geometry>
-    </collision>
-  </link>
-    
-  <joint name="imu_joint" type="fixed">
-    <parent>chassis</parent>
-    <child>imu_link</child>
-    <axis>
-        <xyz>-1 0 0</xyz>
-    </axis>
-  </joint>
-  
-  
-  <plugin name="imu_plugin" filename="libgazebo_ros_imu.so">
-    <ros>
-      <namespace>/demo</namespace>
-    </ros>
-	<alwaysOn>true</alwaysOn>
-	<bodyName>base_footprint</bodyName>
-	<topicName>imu</topicName>
-	<serviceName>imu_service</serviceName>
-	<gaussianNoise>0.0</gaussianNoise>
-	<updateRate>20.0</updateRate>
-</plugin>
- 
-     
-  
-  <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
-    <ros>
-      <namespace>/demo</namespace>
-    </ros>
-
-    <!-- wheels -->
-    <left_joint>lw</left_joint>
-    <right_joint>rw</right_joint>
-
-    <!-- kinematics -->
-    <wheel_separation>0.1335</wheel_separation>
-    <wheel_diameter>0.057</wheel_diameter>
-
-    <!-- limits -->
-    <max_wheel_torque>20</max_wheel_torque>
-    <max_wheel_acceleration>1.0</max_wheel_acceleration>
-
-    <!-- output -->
-    <publish_odom>true</publish_odom>
-    <publish_odom_tf>true</publish_odom_tf>
-    <publish_wheel_tf>true</publish_wheel_tf>
-
-    <odometry_frame>odom</odometry_frame>
-    <robot_base_frame>chassis</robot_base_frame>
-  </plugin>
+    <static>0</static>
+    <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+      <ros>
+        <namespace>/demo</namespace>
+      </ros>
+      <left_joint>rightjoint</left_joint>
+      <right_joint>leftjoint</right_joint>
+      <wheel_separation>0.025</wheel_separation>
+      <wheel_diameter>0.2</wheel_diameter>
+      <max_wheel_torque>20</max_wheel_torque>
+      <max_wheel_acceleration>1.0</max_wheel_acceleration>
+      <publish_odom>1</publish_odom>
+      <publish_odom_tf>1</publish_odom_tf>
+      <publish_wheel_tf>1</publish_wheel_tf>
+      <odometry_frame>odom</odometry_frame>
+      <robot_base_frame>base_link</robot_base_frame>
+    </plugin>
   </model>
 </sdf>

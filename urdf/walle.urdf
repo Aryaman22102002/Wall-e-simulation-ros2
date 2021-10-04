@@ -3,22 +3,22 @@
      Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
      For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
 <robot
-  name="aaa">
+  name="walle">
   <link
-    name="chassis">
+    name="base_link">
     <inertial>
       <origin
-        xyz="5.6202E-05 -0.011704 0.02393"
+        xyz="-2.22044604925031E-16 5.55111512312578E-17 -0.0025"
         rpy="0 0 0" />
       <mass
-        value="0.75" />
+        value="0.0915522076768964" />
       <inertia
-        ixx="0.00020038"
-        ixy="-5.9012E-08"
-        ixz="2.6652E-08"
-        iyy="0.0002702"
-        iyz="3.5718E-09"
-        izz="0.00045111" />
+        ixx="0.000121426493531278"
+        ixy="1.28749007982654E-19"
+        ixz="2.00582516820362E-22"
+        iyy="0.000118984228490269"
+        iyz="-4.40398066350633E-24"
+        izz="0.00024002925448956" />
     </inertial>
     <visual>
       <origin
@@ -26,12 +26,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://aaa/meshes/chassis.STL" />
+          filename="meshes/base_link.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="0 1 0 1" />
+          rgba="1 1 0 1" />
       </material>
     </visual>
     <collision>
@@ -40,25 +40,25 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://aaa/meshes/chassis.STL" />
+          filename="meshes/base_link.STL" />
       </geometry>
     </collision>
   </link>
   <link
-    name="leftshaft">
+    name="leftlink">
     <inertial>
       <origin
-        xyz="-0.0104 -1.8041E-16 2.7756E-16"
+        xyz="1.30389649188878E-07 -0.0123100246668957 2.5334499642593E-07"
         rpy="0 0 0" />
       <mass
-        value="0.005" />
+        value="0.0297341394891575" />
       <inertia
-        ixx="1.7126E-09"
-        ixy="-2.9291E-22"
-        ixz="3.976E-22"
-        iyy="1.7676E-08"
-        iyz="-4.3067E-10"
-        izz="1.7706E-08" />
+        ixx="1.22912877699104E-05"
+        ixy="-4.10833231740425E-11"
+        ixz="-1.60251566466151E-10"
+        iyy="2.03788362258655E-05"
+        iyz="-7.97922307819276E-11"
+        izz="1.22911347079312E-05" />
     </inertial>
     <visual>
       <origin
@@ -66,12 +66,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://aaa/meshes/leftshaft.STL" />
+          filename="meshes/leftlink.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="1 0 0 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -80,101 +80,41 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://aaa/meshes/leftshaft.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="ls"
-    type="revolute">
-    <origin
-      xyz="-0.06575 -0.014071 -0.018803"
-      rpy="0 0 0" />
-    <parent
-      link="chassis" />
-    <child
-      link="leftshaft" />
-    <axis
-      xyz="-1 0 0" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="1000"
-      velocity="1000" />
-  </joint>
-  <link
-    name="leftwheel">
-    <inertial>
-      <origin
-        xyz="0.00231 8.0701E-06 -7.013E-06"
-        rpy="0 0 0" />
-      <mass
-        value="0.03" />
-      <inertia
-        ixx="2.0379E-05"
-        ixy="6.7734E-11"
-        ixz="-5.8879E-11"
-        iyy="1.2291E-05"
-        iyz="1.7748E-10"
-        izz="1.2291E-05" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://aaa/meshes/leftwheel.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://aaa/meshes/leftwheel.STL" />
+          filename="meshes/leftlink.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="lw"
-    type="revolute">
+    name="leftjoint"
+    type="continuous">
     <origin
-      xyz="-0.0216 0 0"
+      xyz="-0.0054501 0.10601 -0.017901"
       rpy="0 0 0" />
     <parent
-      link="leftshaft" />
+      link="base_link" />
     <child
-      link="leftwheel" />
+      link="leftlink" />
     <axis
-      xyz="-1 0 0" />
+      xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="1000"
-      velocity="1000" />
+      effort="1"
+      velocity="1" />
   </joint>
   <link
-    name="rightshaft">
+    name="rightlink">
     <inertial>
       <origin
-        xyz="0.0104 4.8572E-16 -2.498E-16"
+        xyz="1.30389644192874E-07 0.0123100246669055 -2.53345015299722E-07"
         rpy="0 0 0" />
       <mass
-        value="0.005" />
+        value="0.0297341394891515" />
       <inertia
-        ixx="1.7126E-09"
-        ixy="-7.6673E-22"
-        ixz="3.8142E-22"
-        iyy="1.7676E-08"
-        iyz="4.3067E-10"
-        izz="1.7706E-08" />
+        ixx="1.22912877699023E-05"
+        ixy="4.10833183756008E-11"
+        ixz="1.60251568244731E-10"
+        iyy="2.03788362258477E-05"
+        iyz="-7.97922334315798E-11"
+        izz="1.22911347079369E-05" />
     </inertial>
     <visual>
       <origin
@@ -182,12 +122,12 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://aaa/meshes/rightshaft.STL" />
+          filename="meshes/rightlink.STL" />
       </geometry>
       <material
         name="">
         <color
-          rgba="1 0 0 1" />
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
     <collision>
@@ -196,84 +136,198 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://aaa/meshes/rightshaft.STL" />
+          filename="meshes/rightlink.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="rs"
-    type="revolute">
+    name="rightjoint"
+    type="continuous">
     <origin
-      xyz="0.06575 -0.014071 -0.018803"
+      xyz="-0.0063446 -0.10601 -0.017901"
       rpy="0 0 0" />
     <parent
-      link="chassis" />
+      link="base_link" />
     <child
-      link="rightshaft" />
+      link="rightlink" />
     <axis
-      xyz="1 0 0" />
+      xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="0"
-      effort="1000"
-      velocity="1000" />
+      effort="1"
+      velocity="1" />
   </joint>
-  <link
-    name="rightwheel">
-    <inertial>
-      <origin
-        xyz="-0.00231 8.0701E-06 7.013E-06"
-        rpy="0 0 0" />
-      <mass
-        value="0.03" />
-      <inertia
-        ixx="2.0379E-05"
-        ixy="-6.7734E-11"
-        ixz="-5.8879E-11"
-        iyy="1.2291E-05"
-        iyz="-1.7748E-10"
-        izz="1.2291E-05" />
-    </inertial>
+  
+   
+    
+<link name="imu_link">
     <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://aaa/meshes/rightwheel.STL" />
+        <box size="0.001 0.001 0.001"/>
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.79216 0.81961 0.93333 1" />
-      </material>
     </visual>
     <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
       <geometry>
-        <mesh
-          filename="package://aaa/meshes/rightwheel.STL" />
+        <box size="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
-  <joint
-    name="rw"
-    type="revolute">
-    <origin
-      xyz="0.0216 0 0"
-      rpy="0 0 0" />
-    <parent
-      link="rightshaft" />
-    <child
-      link="rightwheel" />
-    <axis
-      xyz="1 0 0" />
-    <limit
-      lower="0"
-      upper="0"
-      effort="1000"
-      velocity="1000" />
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.01"/>
   </joint>
+  <gazebo reference="imu_link">
+    <sensor name="imu_sensor" type="imu">
+      <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
+        <ros>
+          <namespace>/demo</namespace>
+          <remapping>~/out:=imu</remapping>
+        </ros>
+        <initial_orientation_as_reference>false</initial_orientation_as_reference>
+      </plugin>
+      <always_on>true</always_on>
+      <update_rate>100</update_rate>
+      <visualize>true</visualize>
+      <imu>
+        <angular_velocity>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>2e-4</stddev>
+              <bias_mean>0.0000075</bias_mean>
+              <bias_stddev>0.0000008</bias_stddev>
+            </noise>
+          </z>
+        </angular_velocity>
+        <linear_acceleration>
+          <x>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </x>
+          <y>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </y>
+          <z>
+            <noise type="gaussian">
+              <mean>0.0</mean>
+              <stddev>1.7e-2</stddev>
+              <bias_mean>0.1</bias_mean>
+              <bias_stddev>0.001</bias_stddev>
+            </noise>
+          </z>
+        </linear_acceleration>
+      </imu>
+    </sensor>
+  </gazebo>
+
+    <link name="camera_link">
+    <visual>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </visual>
+    <collision>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="camera_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+  <gazebo reference="camera_link">
+    <sensor name="camera1" type="camera">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>rrbot/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+  
+  
+ <gazebo>
+  <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
+    <ros>
+      <namespace>/demo</namespace>
+    </ros>
+
+    <!-- wheels -->
+    <left_joint>rightjoint</left_joint>
+    <right_joint>leftjoint</right_joint>
+
+    <!-- kinematics -->
+    <wheel_separation>0.025</wheel_separation>
+    <wheel_diameter>0.2</wheel_diameter>
+
+    <!-- limits -->
+    <max_wheel_torque>20</max_wheel_torque>
+    <max_wheel_acceleration>1.0</max_wheel_acceleration>
+
+    <!-- output -->
+    <publish_odom>true</publish_odom>
+    <publish_odom_tf>true</publish_odom_tf>
+    <publish_wheel_tf>true</publish_wheel_tf>
+
+    <odometry_frame>odom</odometry_frame>
+    <robot_base_frame>base_link</robot_base_frame>
+  </plugin>
+ </gazebo>
 </robot>

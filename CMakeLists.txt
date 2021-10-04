@@ -23,11 +23,29 @@ find_package(gazebo_ros_pkgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+
+add_executable(self_balancing src/self_balancing.cpp)
+ament_target_dependencies(self_balancing rclcpp geometry_msgs)
+add_executable(line_following src/line_following.cpp)
+ament_target_dependencies(line_following rclcpp sensor_msgs)
+add_executable(publisher src/publisher.cpp)
+ament_target_dependencies(publisher rclcpp geometry_msgs)
+add_executable(ml src/ml.cpp)
+ament_target_dependencies(ml rclcpp sensor_msgs)
 
 set (dependencies
 gazebo_ros
 )
 
+install(TARGETS
+  self_balancing
+  line_following
+  publisher
+  ml
+  DESTINATION lib/${PROJECT_NAME})
+  
 install(
 DIRECTORY 
  launch
@@ -35,6 +53,7 @@ DIRECTORY
  worlds
  urdf
  meshes
+ rviz
   DESTINATION share/${PROJECT_NAME}/
   )
 
