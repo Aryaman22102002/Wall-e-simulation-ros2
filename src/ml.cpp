@@ -13,10 +13,11 @@ using namespace std::chrono_literals;
 using std::placeholders::_1;
 
 // Declaring all variables used
- double a ,b ,c ,Kp = 1,Ki = 0.01,Kd = 0.0001;
+  double Kp = 3.0,Ki = 0.1,Kd = 0.8;
   double pitch_x, pitch_rate = 0, pitch_error = 0, prev_pitch_error = 0, pitch_error_difference = 0;
-  double pitch_desired = 0.65;
+  double pitch_desired = 0.0;
   double pitch_area = 0, correction = 0, P_term, D_term, I_term;
+  double speed = 0, speed_max = 0.4, speed_min = 0.2;
   
 // Class for subscribing and publishing
 class PublishingSubscriber : public rclcpp::Node
@@ -31,27 +32,23 @@ class PublishingSubscriber : public rclcpp::Node
       
       publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/demo/cmd_vel",10);   
         timer_ = this->create_wall_timer(
-        500ms, std::bind(&PublishingSubscriber::timer_callback, this));   
+        100ms, std::bind(&PublishingSubscriber::timer_callback, this));   
     }
     
   protected:
     
     void topic_callback(const sensor_msgs::msg::Imu::SharedPtr msg) const
     {
-     // Assigning values of linear accleration taken from imu
-     a = msg->linear_acceleration.x;
-     b = msg->linear_acceleration.y;
-     c = msg->linear_acceleration.z;
+     // Assigning value of orientation.y taken from imu
+     pitch_x = msg->orientation.y;
      
-     // Calculation of pitch
-     pitch_x = atan(a/sqrt(b*b + c*c));
-     RCLCPP_INFO(this->get_logger(), "Publishing: '%lf;", pitch_x);
+     RCLCPP_INFO(this->get_logger(), "Publishing pitch: '%lf;", pitch_x);
      
      // Pitch error, pitch error difference, previous pitch error, pitch rate, pitch area 
      pitch_error = pitch_desired - pitch_x;
      pitch_error_difference = pitch_error - prev_pitch_error;
      prev_pitch_error = pitch_error;
-     pitch_rate = (pitch_error_difference/0.5);
+     pitch_rate = (pitch_error_difference);
      pitch_area += pitch_error;
      
      // Max and min value of pitch error
@@ -70,25 +67,49 @@ class PublishingSubscriber : public rclcpp::Node
      I_term = Ki*pitch_area;
      correction = P_term + D_term + I_term;
      RCLCPP_INFO(this->get_logger(), "Publishing: '%lf','%lf','%f' and '%f'", P_term,D_term,I_term,correction);
-    }
+     
+     speed = fabs(correction);
+     if(speed > speed_max)
+     {
+       speed = speed_max;
+     } 
+     else if(speed < speed_min)
+     {
+       speed = speed_min;
+     }
+   }
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr subscription_;   
       
    void timer_callback() {
       //Conditions for forward and backward velocity
       
-      if(pitch_error < -0.15)
+      if(pitch_error > 0.142072)
       {
       auto message = geometry_msgs::msg::Twist();
-      message.linear.x = -fabs(correction) ;
-      RCLCPP_INFO(this->get_logger(), "Publishing: '%lf'", message.linear.x);
+      message.linear.x = -speed ;
+      RCLCPP_INFO(this->get_logger(), "Publishing speed: '%lf'", message.linear.x);
       publisher_->publish(message);
       }
-      else if(pitch_error > 0.15)
+      else if(pitch_error < 0.142072)
       {
        auto message = geometry_msgs::msg::Twist();
-      message.linear.x = fabs(correction) ;
-      RCLCPP_INFO(this->get_logger(), "Publishing: '%lf'", message.linear.x);
+      message.linear.x = 1.8*speed ;
+      RCLCPP_INFO(this->get_logger(), "Publishing speed: '%lf'", message.linear.x);
       publisher_->publish(message);
+      }
+      else if(pitch_error > -1.629693)
+       {
+       auto message = geometry_msgs::msg::Twist();
+       message.linear.x = -speed ;
+       RCLCPP_INFO(this->get_logger(), "Publishing speed: '%lf'", message.linear.x);
+       publisher_->publish(message);
+      }
+      else
+      {
+       auto message = geometry_msgs::msg::Twist();
+       message.linear.x = 0.0 ;
+       RCLCPP_INFO(this->get_logger(), "Publishing speed: '%lf'", message.linear.x);
+       publisher_->publish(message);
       }
      }
   rclcpp::TimerBase::SharedPtr timer_;
