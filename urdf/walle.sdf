@@ -231,7 +231,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftlink.STL</uri>
+            <uri>meshes/leftwheel.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -240,7 +240,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/leftlink.STL</uri>
+            <uri>meshes/leftwheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
@@ -282,7 +282,7 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/rightlink.STL</uri>
+            <uri>meshes/rightwheel.STL</uri>
           </mesh>
         </geometry>
       </collision>
@@ -291,12 +291,18 @@
         <geometry>
           <mesh>
             <scale>1 1 1</scale>
-            <uri>meshes/rightlink.STL</uri>
+            <uri>meshes/rightwheel.STL</uri>
           </mesh>
         </geometry>
       </visual>
     </link>
     <static>0</static>
+     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+     <ros>
+    <namespace>/walle</namespace>
+    </ros>
+  </plugin>
+  
     <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
       <ros>
         <namespace>/demo</namespace>
