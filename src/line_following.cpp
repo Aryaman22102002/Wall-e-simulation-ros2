@@ -11,7 +11,7 @@ using std::placeholders::_1;
 // Declaring all variables used
 double r = 0.0, error = 0.0, prev_error = 0.0, error_diff = 0.0, error_area = 0.0;
 double kp = 0.4, kd = 0.0, ki = 0.0, correction = 0.0, ang_speed = 0.0;
-int z = 0;
+int direction = 0;
 
 
 class line_following : public rclcpp::Node
@@ -33,7 +33,7 @@ class line_following : public rclcpp::Node
     void topic_callback(const sensor_msgs::msg::Image::SharedPtr msg) const
     {
       // Callback function for subscriber
-      int count = 0, index = 0, k = 1;
+      int count = 0, index = 0, flag = 1;
       
       // Reading values of 'r' from rbg values 
       for(int i = 0; i < 96; i+=3)
@@ -44,10 +44,10 @@ class line_following : public rclcpp::Node
        // Checking for white pixels
        if( r > 125.00)
        {
-         if(k == 1)
+         if(flag == 1)
          {
            index = i+1;      // Assigning position of first white pixel to variable index
-           k = 0;
+           flag = 0;
          }
           count ++;         // Counting total number of white pixels
        }
@@ -58,12 +58,12 @@ class line_following : public rclcpp::Node
          if(index <= 12)               // Checking position of first white pixel with respect to ideal position of first white pixel
          {
            error = 16 - index - 4;     // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the left side
-           z = 1;
+           direction = 1;
          }
          else
          {
            error = index + 4 - 17;     // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the right side
-           z = 2;
+           direction = 2;
          }
        }
        else if(count >= 5 && count < 10)   // If we don't have all white pixels in range of camera
@@ -71,12 +71,12 @@ class line_following : public rclcpp::Node
          if(index < 12)
          {
            error = 12 - index;          // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the left side
-           z = 1;
+           direction = 1;
          }
          else if(index > 21)
          {
            error = index - 21;         // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the right side
-           z = 2;
+           direction = 2;
          }
        }
         
@@ -95,14 +95,14 @@ class line_following : public rclcpp::Node
    void timer_callback() {
     
     // Giving angular speed either clockwise or anti-clockwise
-    if(z == 1)
+    if(direction == 1)
     {  
       auto message = geometry_msgs::msg::Twist();
       message.linear.x = 0.2;
       message.angular.z = -ang_speed ;
       publisher_->publish(message);
     }
-    else if(z == 2)
+    else if(direction == 2)
     {
       auto message = geometry_msgs::msg::Twist();
       message.linear.x = 0.2;
