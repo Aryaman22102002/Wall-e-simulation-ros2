@@ -18,7 +18,7 @@ def generate_launch_description():
     sdf_file = os.path.join(sdf_prefix, "urdf", "walle2.sdf")
 
     world_prefix = get_package_share_directory("my_bot")
-    world_file = os.path.join(world_prefix, "worlds", "white.world")
+    world_file = os.path.join(world_prefix, "worlds", "sra.world")
     
     rviz_config_prefix = get_package_share_directory("my_bot")
     rviz_config_path = os.path.join(rviz_config_prefix, 'rviz/urdf_config.rviz')
