@@ -1,5 +1,5 @@
 # Wall-e-simulation-ros
-A simulation of a self-balancing and line following bot
+A simulation of a self-balancing and line following bot.
 
 ## Table of Contents
 * [About the Project](#about-the-project)
