@@ -94,7 +94,7 @@ own operating system in the official documentation provided in the second link a
 </code>
 
 ### Configuration
-The colour of the bot can be varied by the changing the colour in the material tag of the visual elemnt in the bot's sdf. The list of all colours and materials available for Gazebo are avialable [here](http://wiki.ros.org/simulator_gazebo/Tutorials/ListOfMaterials).
+The colour of the bot can be varied by the changing the colour in the material tag of the visual element in the bot's sdf. The list of all colours and materials available for Gazebo are avialable [here](http://wiki.ros.org/simulator_gazebo/Tutorials/ListOfMaterials).
 
 ## Usage
 1. After cloning the repo, go into your ROS2 workspace and run the following commands:<br/>
