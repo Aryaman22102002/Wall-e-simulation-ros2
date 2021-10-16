@@ -9,6 +9,7 @@ A simulation of a self-balancing and line following bot.
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Configuration](#configuration)
 * [Usage](#usage)
 * [Results and Demo](#results-and-demo)
 * [Future Work](#future-work)
