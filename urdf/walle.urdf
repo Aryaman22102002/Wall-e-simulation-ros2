@@ -302,7 +302,12 @@
     </sensor>
   </gazebo>
   
-  
+  <gazebo>
+  <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+    <robotNamespace>/MYROBOT</robotNamespace>
+  </plugin>
+</gazebo>
+
  <gazebo>
   <plugin name='diff_drive' filename='libgazebo_ros_diff_drive.so'>
     <ros>
