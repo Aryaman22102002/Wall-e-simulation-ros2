@@ -37,43 +37,44 @@ A simulation of a self-balancing and line following bot.
 * MS Paint
 
 ### File Structure
-    ├── config                            
-        ├── joint_names_Wall-E-urdf1.yaml     # Configuration file for joints of the bot        
-    ├── launch                                # All launch files
-        ├── emptyworld.launch.py             
-        ├── gazebo.launch.py
-        ├── gzclient.launch.py
-        ├── gzserver.launch.py
-        ├── line_following.launch.py          # Launch file for bot for line-following algorithm
-        ├── robot_state_publisher.launch.py  
-        ├── self_balancing.launch.py          # Launch file for bot for self-balancing algorithm
-    ├── meshes                                # Meshes for different parts of bot
-        ├── base_link.STL
-        ├── chassis.STL
-        ├── leftwheel.STL
-        ├── rightwheel.STL
-    ├── models                              
-        ├── course.material                   # The file which links the world file to the png of the world
-        ├── sra.png                           # The png which decides the design of the world in Gazebo
-    ├── rviz                              
-        ├── urdf_config.rviz                  # The file for rviz configuration
-    ├── src                                   # All cpp codes are stored here
-        ├── line_following.cpp                # The line-foollowing algorithm
-        ├── self_following.cpp                # The self-balancing algorithm
-    ├── urdf                                  # The sdf files for bot are stored here 
-        ├── walle.csv                         
-        ├── walle.urdf           
-        ├── walle.sdf                         # The sdf file for self-balancing bot 
-        ├── walle2.sdf                        # The sdf file for line-following bot
-    ├── worlds                                 
-        ├── sra.world                         # The line-following path
-    ├── .gitignore    
-    ├── CMakeLists.txt                        # Contains all the information regarding the packages to be imported
-    ├── LICENSE
-    ├── README.md
-    ├── export.log
-    ├── package.xml                           # Contains all the information regarding the dependencies to be imported
-    
+```
+   ┣ 📂config
+   ┃ ┗ 📜joint_names_Wall-E-urdf1.yaml           # Configuration file for joints of the bot
+   ┣ 📂launch                                    # All launch files
+   ┃ ┣ 📜emptyworld.launch.py
+   ┃ ┣ 📜gazebo.launch.py
+   ┃ ┣ 📜gzclient.launch.py
+   ┃ ┣ 📜gzserver.launch.py
+   ┃ ┣ 📜line_following.launch.py                # Launch file for bot for line-following algorithm
+   ┃ ┣ 📜robot_state_publisher.launch.py         # Launch file for bot for self-balancing algorithm
+   ┃ ┣ 📜self_balancing.launch.py
+   ┣ 📂meshes                                    # Meshes for different parts of bot
+   ┃ ┣ 📜base_link.STL
+   ┃ ┣ 📜chassis.STL
+   ┃ ┣ 📜leftwheel.STL
+   ┃ ┗ 📜rightwheel.STL
+   ┣ 📂models
+   ┃ ┣ 📜course.material                         # The file which links the world file to the png of the world
+   ┃ ┗ 📜sra.png                                 # The png which decides the design of the world in Gazebo
+   ┣ 📂rviz
+   ┃ ┗ 📜urdf_config.rviz                        # The file for rviz configuration
+   ┣ 📂src                                       # All cpp codes are stored here
+   ┃ ┣ 📜line_following.cpp                      # The line-foollowing algorithm
+   ┃ ┣ 📜self_balancing.cpp                      # The sdf files for bot are stored here 
+   ┣ 📂urdf
+   ┃ ┣ 📜walle.csv
+   ┃ ┣ 📜walle.urdf   
+   ┃ ┣ 📜walle.sdf                               # The sdf file for self-balancing bot
+   ┃ ┣ 📜walle2.sdf                              # The sdf file for line-following bot
+   ┣ 📂worlds
+   ┃ ┗ 📜sra.world                               # The line-following path
+   ┣ 📜.gitignore
+   ┣ 📜CMakeLists.txt                            # Contains all the information regarding the packages to be imported
+   ┣ 📜LICENSE
+   ┣ 📜README.md
+   ┣ 📜export.log
+   ┣ 📜package.xml                               # Contains all the information regarding the dependencies to be imported
+```  
     
 ## Getting Started
 
