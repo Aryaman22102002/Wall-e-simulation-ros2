@@ -135,8 +135,7 @@ https://user-images.githubusercontent.com/82901720/137575995-79693d64-294f-4f40-
 
 ## Acknowledgements and Resources
 * [SRA Vjti](https://www.sravjti.in/) Eklavya 2021<br/>
-* [Gautam Agrawal](https://github.com/gautam-dev-maker)<br/>
-* [Anushree Sabnis](https://github.com/MOLOCH-dev)
+* Special thanks to our mentors [Gautam Agrawal](https://github.com/gautam-dev-maker) and [Anushree Sabnis](https://github.com/MOLOCH-dev).<br/>
 * https://github.com/SRA-VJTI/Wall-E_v2.2
 * https://navigation.ros.org/setup_guides/urdf/setup_urdf.html
 
