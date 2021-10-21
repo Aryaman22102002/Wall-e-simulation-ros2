@@ -8,6 +8,7 @@
 #include <geometry_msgs/msg/twist.hpp>
 #include <chrono>
 #include <sensor_msgs/msg/image.hpp>
+
 using namespace std::chrono_literals;
 using std::placeholders::_1;
 
@@ -28,22 +29,22 @@ double r = 0.0, error = 0.0, prev_error = 0.0, error_diff = 0.0, error_area = 0.
 int direction = 0;
 bool balanced_state = false;
 
-class PublishingSubscriber : public rclcpp::Node
+class walle : public rclcpp::Node
 {
   // Subscriber and publisher node
 public:
-  PublishingSubscriber()
-      : Node("publishing_subscriber")
+  walle()
+      : Node("wall_e")
   {
     subscription_ = this->create_subscription<sensor_msgs::msg::Imu>(
-        "/demo/imu", 10, std::bind(&PublishingSubscriber::topic_callback, this, _1));
+        "/demo/imu", 10, std::bind(&walle::topic_callback, this, _1));
 
     subscription1_ = this->create_subscription<sensor_msgs::msg::Image>(
-        "/camera1/image_raw", 10, std::bind(&PublishingSubscriber::topic_callbacks, this, _1));
+        "/camera1/image_raw", 10, std::bind(&walle::topic_callbacks, this, _1));
 
     publisher_ = this->create_publisher<geometry_msgs::msg::Twist>("/demo/cmd_vel", 10);
     timer_ = this->create_wall_timer(
-        100ms, std::bind(&PublishingSubscriber::timer_callback, this));
+        100ms, std::bind(&walle::timer_callback, this));
   }
 
 protected:
@@ -167,13 +168,12 @@ void timer_callback()
 }
 rclcpp::TimerBase::SharedPtr timer_;
 rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
-}
-;
+};
 
 int main(int argc, char *argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<PublishingSubscriber>());
+  rclcpp::spin(std::make_shared<walle>());
   rclcpp::shutdown();
   return 0;
 }
