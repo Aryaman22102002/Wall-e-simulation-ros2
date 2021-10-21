@@ -122,13 +122,19 @@ colcon build
   
 6. For running the line-following code, enter the following command:<code> ros2 run my_bot line_following  </code>
 
+7. For launching the self-balancing plus line-following combined bot, enter the following command:<code>  ros2 launch my_bot walle.launch.py </code>
+
+8. For running the self-balancing plus line-following combined code, enter the following command:<code> ros2 run my_bot wall_e </code>
+
 ## Results and Demo
 The implementation of the self balancing and line following codes has been demonstarted in the following video.
 
 https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-a4d1-9e19adb14d49.mp4
 
 <br>
-Please turn on the volume.<br/>
+    Please turn on the volume.
+    
+    
 ## Future Work
 - [X] Combine self-balancing and line-following 
 - [ ] Implement maze solving algorithms 
