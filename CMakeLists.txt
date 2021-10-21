@@ -30,6 +30,8 @@ add_executable(line_following src/line_following.cpp)
 ament_target_dependencies(line_following rclcpp sensor_msgs)
 add_executable(self_balancing src/self_balancing.cpp)
 ament_target_dependencies(self_balancing rclcpp sensor_msgs)
+add_executable(wall_e src/wall_e.cpp)
+ament_target_dependencies(wall_e rclcpp sensor_msgs)
 
 set (dependencies
 gazebo_ros
@@ -38,6 +40,7 @@ gazebo_ros
 install(TARGETS
   self_balancing
   line_following
+  wall_e
   DESTINATION lib/${PROJECT_NAME})
   
 install(
