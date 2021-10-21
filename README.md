@@ -58,6 +58,7 @@ A simulation of a self-balancing and line following bot.
    ┃ ┗ 📜combinedworld.png                       # The png which decides the design of the world in Gazebo(for combined algorithm)
    ┃ ┣ 📜course.material                         # The file which links the world file to the png of the world
    ┃ ┣ 📜course2.material                        # The file which links the world file to the png of the world(for combined algorithm)
+   ┃ ┗ 📜redline.png                             # The png which decides the design of the world in Gazebo(for combined algorithm)  
    ┃ ┗ 📜sra.png                                 # The png which decides the design of the world in Gazebo
    ┣ 📂rviz
    ┃ ┗ 📜urdf_config.rviz                        # The file for rviz configuration
