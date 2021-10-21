@@ -126,9 +126,9 @@ colcon build
 The implementation of the self balancing and line following codes has been demonstarted in the following video.
 
 https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-a4d1-9e19adb14d49.mp4
-
+Please turn on the volume.
 ## Future Work
-- [ ] Combine self-balancing and line-following 
+- [X] Combine self-balancing and line-following 
 - [ ] Implement maze solving algorithms 
 
 ## Troubleshooting 
