@@ -46,28 +46,34 @@ A simulation of a self-balancing and line following bot.
    ┃ ┣ 📜gzclient.launch.py
    ┃ ┣ 📜gzserver.launch.py
    ┃ ┣ 📜line_following.launch.py                # Launch file for bot for line-following algorithm
-   ┃ ┣ 📜robot_state_publisher.launch.py         # Launch file for bot for self-balancing algorithm
-   ┃ ┣ 📜self_balancing.launch.py
+   ┃ ┣ 📜robot_state_publisher.launch.py         
+   ┃ ┣ 📜self_balancing.launch.py                # Launch file for bot for self-balancing algorithm
+   ┃ ┣ 📜walle.launch.py                         # Launch file for bot for self-balancing and line-following combined algorithm
    ┣ 📂meshes                                    # Meshes for different parts of bot
    ┃ ┣ 📜base_link.STL
    ┃ ┣ 📜chassis.STL
    ┃ ┣ 📜leftwheel.STL
    ┃ ┗ 📜rightwheel.STL
    ┣ 📂models
+   ┃ ┗ 📜combinedworld.png                       # The png which decides the design of the world in Gazebo(for combined algorithm)
    ┃ ┣ 📜course.material                         # The file which links the world file to the png of the world
+   ┃ ┣ 📜course2.material                        # The file which links the world file to the png of the world(for combined algorithm)
    ┃ ┗ 📜sra.png                                 # The png which decides the design of the world in Gazebo
    ┣ 📂rviz
    ┃ ┗ 📜urdf_config.rviz                        # The file for rviz configuration
    ┣ 📂src                                       # All cpp codes are stored here
    ┃ ┣ 📜line_following.cpp                      # The line-following algorithm
-   ┃ ┣ 📜self_balancing.cpp                      # The sdf files for bot are stored here 
-   ┣ 📂urdf
+   ┃ ┣ 📜self_balancing.cpp                      # The self-balancing algorithm
+   ┃ ┣ 📜wall_e.cpp                              # The self-balancing and line-following combined algorithm
+   ┣ 📂urdf                                      # The sdf files for bot are stored here 
    ┃ ┣ 📜walle.csv
    ┃ ┣ 📜walle.urdf   
    ┃ ┣ 📜walle.sdf                               # The sdf file for self-balancing bot
    ┃ ┣ 📜walle2.sdf                              # The sdf file for line-following bot
+   ┃ ┣ 📜walle4.sdf                              # The sdf file for line-following and self-balancing combined bot
    ┣ 📂worlds
    ┃ ┗ 📜sra.world                               # The line-following path
+   ┃ ┗ 📜sra2.world                              # The line-following and self-balancing combined path
    ┣ 📜.gitignore
    ┣ 📜CMakeLists.txt                            # Contains all the information regarding the packages to be imported
    ┣ 📜LICENSE
@@ -119,7 +125,7 @@ colcon build
 ## Results and Demo
 The implementation of the self balancing and line following codes has been demonstarted in the following video.
 
-https://user-images.githubusercontent.com/82901720/137575995-79693d64-294f-4f40-88f0-2290bfa87bfe.mp4
+https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-a4d1-9e19adb14d49.mp4
 
 ## Future Work
 - [ ] Combine self-balancing and line-following 
