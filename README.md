@@ -128,7 +128,7 @@ The implementation of the self balancing and line following codes has been demon
 https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-a4d1-9e19adb14d49.mp4
 
 <br>
-Please turn on the volume.
+Please turn on the volume.<br/>
 ## Future Work
 - [X] Combine self-balancing and line-following 
 - [ ] Implement maze solving algorithms 
