@@ -59,7 +59,7 @@ A simulation of a self-balancing and line following bot.
    ┣ 📂rviz
    ┃ ┗ 📜urdf_config.rviz                        # The file for rviz configuration
    ┣ 📂src                                       # All cpp codes are stored here
-   ┃ ┣ 📜line_following.cpp                      # The line-foollowing algorithm
+   ┃ ┣ 📜line_following.cpp                      # The line-following algorithm
    ┃ ┣ 📜self_balancing.cpp                      # The sdf files for bot are stored here 
    ┣ 📂urdf
    ┃ ┣ 📜walle.csv
