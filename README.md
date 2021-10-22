@@ -137,8 +137,9 @@ https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-
     
     
 ## Future Work
-- [X] Combine self-balancing and line-following 
-- [ ] Implement maze solving algorithms 
+- [X] Combine self-balancing and line-following. 
+- [ ] To implement the combined algorithm on hardware.
+- [ ] Implement maze solving algorithms. 
 
 ## Troubleshooting 
 * Sometimes the self-balancing code will behave differently than the previous run. Try to stop the execution of the code and launch the bot again and run the code.
