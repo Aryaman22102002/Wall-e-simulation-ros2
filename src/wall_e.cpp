@@ -24,6 +24,7 @@ double Kp = 0.03 * 1.2 * 1.1 / 10.0 * 0.1 * 5 * 1.5 * 1.3 * 1.5 * 0.5 * 0.5 * 10
 double kp = 0.18, ki = 0.0, kd = 0.0, speed = 0.1;
 double pitch_x, pitch_rate = 0, pitch_error = 0, prev_pitch_error = 0, pitch_error_difference = 0, pitch_desired = -5.0, e;
 double pitch_area = 0, correction = 0, P_term1, D_term1, I_term1;
+
 double ang_area = 0, ang_speed = 0, P_term2, D_term2, I_term2;
 double r = 0.0, error = 0.0, prev_error = 0.0, error_diff = 0.0, error_area = 0.0;
 int direction = 0;
@@ -87,6 +88,7 @@ protected:
   }
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr subscription_;
 
+
   // Callback function for subscriber
   void topic_callbacks(const sensor_msgs::msg::Image::SharedPtr msg) const
   {
@@ -132,7 +134,10 @@ protected:
   prev_error = error;
   ang_speed = kp * error + kd * error_diff + ki * error_area;
 
-} rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription1_;
+} 
+rclcpp::Subscription<sensor_msgs::msg::Image>::SharedPtr subscription1_;
+
+
 void timer_callback()
 
 // If bot is not balanced, provide only linear velocity for balancing else provide both linear and angular velocity
