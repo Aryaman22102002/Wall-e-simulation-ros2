@@ -155,7 +155,7 @@ https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-
 ## Acknowledgements and Resources
 * [SRA Vjti](https://www.sravjti.in/) Eklavya 2021<br/>
 * Special thanks to our mentors [Gautam Agrawal](https://github.com/gautam-dev-maker) and [Anushree Sabnis](https://github.com/MOLOCH-dev).<br/>
-* Our [Project Report](https://docs.google.com/document/d/1ehD-klzulT_P4WPWdaE7XFGadXpftQX4NWd0J2p-NH8/edit#)
+* Our [Project Report](https://github.com/Aryaman22102002/Wall-e-simulation-ros/blob/main/assets/Project%20Report.pdf)
 * https://github.com/SRA-VJTI/Wall-E_v2.2
 * https://navigation.ros.org/setup_guides/urdf/setup_urdf.html
 
