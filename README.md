@@ -157,6 +157,7 @@ https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-
 * Special thanks to our mentors [Gautam Agrawal](https://github.com/gautam-dev-maker) and [Anushree Sabnis](https://github.com/MOLOCH-dev).<br/>
 * Our [Project Report](https://github.com/Aryaman22102002/Wall-e-simulation-ros/blob/main/assets/Project%20Report.pdf)
 * https://github.com/SRA-VJTI/Wall-E_v2.2
+* My answer to why the meshes are not spawning in ROS2 : https://answers.gazebosim.org//question/26073/cannot-spawn-urdf-into-gazebo-using-ros2/ 
 * https://navigation.ros.org/setup_guides/urdf/setup_urdf.html
 
 ## License
