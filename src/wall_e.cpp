@@ -104,23 +104,23 @@ protected:
       {
         if (flag == 1)
         {
-          index = i + 1; // Assigning position of first red pixel to variable index
+          index = i + 1;                   // Assigning position of first red pixel to variable index
           flag = 0;
         }
-        count++; // Counting total number of red pixels
+        count++;                           // Counting total number of red pixels
       }
     }
 
-    if (count < 9) // If number of red pixels is less than nine
+    if (count < 9)                         // If number of red pixels is less than nine
     {
       if (index <= 5) 
       {
-        error = 5 - index; // Checking devaition on left side
+        error = 5 - index;                 // Checking devaition on left side
         direction = 1;
       }
       else if(index >= 18)
       {
-        error = index - 18 ; // Checking devaition on right side
+        error = index - 18 ;               // Checking devaition on right side
         direction = -1;
       }
     }
