@@ -40,7 +40,7 @@ A simulation of a self-balancing and line following bot using ROS2
 ### File Structure
 ```
    ┣ 📂assets
-   ┃ ┗ 📜Project Report.pdf                      # Project Report
+   ┃ ┗ 📜Project_Report.pdf                      # Project Report
    ┃ ┗ 📜WallE.gif                               # Gif of WallE bot performing self-balancing and line-following together
    ┣ 📂config
    ┃ ┗ 📜joint_names_Wall-E-urdf1.yaml           # Configuration file for joints of the bot
