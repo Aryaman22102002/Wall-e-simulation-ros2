@@ -46,36 +46,36 @@ class line_following : public rclcpp::Node
        {
          if(flag == 1)
          {
-           index = i+1;      // Assigning position of first white pixel to variable index
+           index = i+1;                      // Assigning position of first white pixel to variable index
            flag = 0;
          }
-          count ++;         // Counting total number of white pixels
+          count ++;                          // Counting total number of white pixels
        }
       }
    
-       if(count == 10)                 // If we have all white pixels in range of camera
+       if(count == 10)                       // If we have all white pixels in range of camera
        {
-         if(index <= 12)               // Checking position of first white pixel with respect to ideal position of first white pixel
+         if(index <= 12)                     // Checking position of first white pixel with respect to ideal position of first white pixel
          {
-           error = 16 - index - 4;     // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the left side
+           error = 16 - index - 4;          // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the left side
            direction = 1;
          }
          else
          {
-           error = index + 4 - 17;     // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the right side
+           error = index + 4 - 17;         // Calculating error by checking for deviation between position of current centre white pixel and ideal centre white pixel if deviation is on the right side
            direction = 2;
          }
        }
-       else if(count >= 5 && count < 10)   // If we don't have all white pixels in range of camera
+       else if(count >= 5 && count < 10)     // If we don't have all white pixels in range of camera
        {
          if(index < 12)
          {
-           error = 12 - index;          // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the left side
+           error = 12 - index;               // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the left side
            direction = 1;
          }
          else if(index > 21)
          {
-           error = index - 21;         // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the right side
+           error = index - 21;               // Calculating error by checking for deviation between position of current first white pixel and ideal first white pixel if deviation is on the right side
            direction = 2;
          }
        }
