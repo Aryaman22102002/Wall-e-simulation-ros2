@@ -103,7 +103,7 @@ own operating system in the official documentation provided in the second link a
 ### Installation
 1. Clone the repo
 <code>
-    git clone https://github.com/Aryaman22102002/Wall-e-simulation-ros.git
+    git clone https://github.com/Aryaman22102002/Wall-e-simulation-ros2.git  
 </code>
 
 ### Configuration
