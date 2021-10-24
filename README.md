@@ -133,12 +133,12 @@ colcon build
 
 ## Theory and Approach
 
-The approach was to first design our bot using SolidWorks. Then we used ROS2 and Gazebo to simulate it. The main theory and concept used for self-balancing and line-following was Proportional Inetgral Derivative(PID).    
-A PID controller is one kind of device used to control different process variables like pressure, flow, temperature, and speed in industrial applications. Here, we first wrote the algorithm for self-balancing the bot. Then we wrote the algorithm for line-following. Then we tried to combine the two and again do the PID tuning.     
-For self-balancing the bot, we need to keep the bot a bit above our desired angle since the bot is very fast and wiill fall down once it's past the desired angle. The pitch angle is required for self-balancing which is obtained from the Inertial Measurement Unit(IMU sensor) plug-in.  
-For making the bot follow the line, we need to first set the frame of the rgb camera which then helps us to decide our desired position which in turn helps us to find the error(i.e by how much is the bot off from the desired position). We then apply PID and decide the angular velcoity which should be given to the bot and in which direction.
-For combining self-balancing and line-following algorithms, we need to ensure that the bot is balanced. Then only we can make it follow the line. At all times, the bot must give preference to balancing itself first and then following the line.  
-The following flow-chart describes the algorithm used for combining the self-balancing and line-following algorithms.
+* The approach was to first design our bot using SolidWorks. Then we used ROS2 and Gazebo to simulate it. The main theory and concept used for self-balancing and line-following was Proportional Inetgral Derivative(PID).    
+* A PID controller is one kind of device used to control different process variables like pressure, flow, temperature, and speed in industrial applications. Here, we first wrote the algorithm for self-balancing the bot. Then we wrote the algorithm for line-following. Then we tried to combine the two and again do the PID tuning.     
+* For self-balancing the bot, we need to keep the bot a bit above our desired angle since the bot is very fast and wiill fall down once it's past the desired angle. The pitch angle is required for self-balancing which is obtained from the Inertial Measurement Unit(IMU sensor) plug-in.  
+* For making the bot follow the line, we need to first set the frame of the rgb camera which then helps us to decide our desired position which in turn helps us to find the error(i.e by how much is the bot off from the desired position). We then apply PID and decide the angular velcoity which should be given to the bot and in which direction.
+* For combining self-balancing and line-following algorithms, we need to ensure that the bot is balanced. Then only we can make it follow the line. At all times, the bot must give preference to balancing itself first and then following the line.  
+* The following flow-chart describes the algorithm used for combining the self-balancing and line-following algorithms.
 
 ![combined algorithm(1)](https://user-images.githubusercontent.com/82901720/138567131-81471a10-4904-4cd4-8165-d7e93c8ba949.png)
 
