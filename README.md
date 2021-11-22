@@ -39,6 +39,8 @@ A simulation of a self-balancing and line following bot using ROS2
 
 ### File Structure
 ```
+   ┣ 📂Bot_SolidWorks_Parts
+   ┃ ┗ 📜WallE_Simulation_ROS2.zip               # Zip file containing all the SolidWorks files for our bot
    ┣ 📂assets
    ┃ ┗ 📜Project_Report.pdf                      # Project Report
    ┃ ┗ 📜WallE.gif                               # Gif of WallE bot performing self-balancing and line-following together
