@@ -136,7 +136,7 @@ colcon build
 
 9. Everytime you make a change in the code/files, you will have to execute the build and source commands mentioned in point number 1. Alternatively, you can run the <code> build.sh </code> script which will execute both the commands mentioned in point number 1 from within the ROS 2 package. It will take the package name as input and execute those commands so that you don't have to go to the root of your workspace to build and source everytime you make a change. First create an executable for the script using the following command: <code> chmod +x build.sh </code>
 
-10. After creating an executable for the <code> build.sh </code> script, to run the script, enter the following command : <code> . build.sh </code>. 
+10. After creating an executable for the <code> build.sh </code> script as instructed in point number 9, to run the script, enter the following command: <code> . build.sh </code>. 
 
 ## Theory and Approach
 
