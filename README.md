@@ -85,6 +85,7 @@ A simulation of a self-balancing and line following bot using ROS2
    ┣ 📜CMakeLists.txt                            # Contains all the information regarding the packages to be imported
    ┣ 📜LICENSE
    ┣ 📜README.md
+   ┣ 📜build.sh                                  # The script executes the build and source commands from within the package
    ┣ 📜export.log
    ┣ 📜package.xml                               # Contains all the information regarding the dependencies to be imported
 ```  
@@ -132,6 +133,8 @@ colcon build
 7. For launching the self-balancing plus line-following combined bot, enter the following command:<code>  ros2 launch my_bot walle.launch.py </code>
 
 8. For running the self-balancing plus line-following combined code, enter the following command:<code> ros2 run my_bot wall_e </code>
+
+9. Everytime you make a change in the code/files, you will have to execute the build and source commands mentioned in point number 1. Alternatively, you can run the <code> build.sh </code> script which will execute both the commands mentioned in point number 1 from within the ROS 2 package. It will take the package name as input and execute those commands so that you don't have to go to the root of your workspace to build and source everytime you make a change. To run the script, enter the following command: <code> . build.sh </code>
 
 ## Theory and Approach
 
