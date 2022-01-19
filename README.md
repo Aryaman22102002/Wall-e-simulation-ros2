@@ -101,7 +101,7 @@ A simulation of a self-balancing and line following bot using ROS2
 * You can find the link for installtion of ROS2 Foxy in video format [here](https://youtu.be/fxRWY0j3p_U) and in text format [here](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html). Note that the video is for installing ROS2 Foxy on Ubuntu whereas you can find the the instructions according to your 
 own operating system in the official documentation provided in the second link above.
 * The link to install Gazebo for Ubuntu is provided [here](http://gazebosim.org/tutorials?tut=install_ubuntu). You can find the instructions to install different versions of Gazebo in the link provided above but using Gazebo 11.0 is recommed for ROS2 Foxy.
-* The link to install RViz on Ubunntu is provided [here](https://zoomadmin.com/HowToInstall/UbuntuPackage/rviz).
+* The link to install RViz on Ubuntu is provided [here](https://zoomadmin.com/HowToInstall/UbuntuPackage/rviz).
 
 ### Installation
 1. Clone the repo
@@ -134,7 +134,9 @@ colcon build
 
 8. For running the self-balancing plus line-following combined code, enter the following command:<code> ros2 run my_bot wall_e </code>
 
-9. Everytime you make a change in the code/files, you will have to execute the build and source commands mentioned in point number 1. Alternatively, you can run the <code> build.sh </code> script which will execute both the commands mentioned in point number 1 from within the ROS 2 package. It will take the package name as input and execute those commands so that you don't have to go to the root of your workspace to build and source everytime you make a change. To run the script, enter the following command: <code> . build.sh </code>
+9. Everytime you make a change in the code/files, you will have to execute the build and source commands mentioned in point number 1. Alternatively, you can run the <code> build.sh </code> script which will execute both the commands mentioned in point number 1 from within the ROS 2 package. It will take the package name as input and execute those commands so that you don't have to go to the root of your workspace to build and source everytime you make a change. First create an executable for the script using the following command: <code> chmod +x build.sh </code>
+
+10. After creating an executable for the <code> build.sh </code> script, to run the script, enter the following command: <code> . build.sh </code>. 
 
 ## Theory and Approach
 
