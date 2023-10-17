@@ -105,38 +105,39 @@ own operating system in the official documentation provided in the second link a
 
 ### Installation
 1. Clone the repo
-<code>
+```
     git clone https://github.com/Aryaman22102002/Wall-e-simulation-ros2.git  
-</code>
+```
 
 ### Configuration
 The colour of the bot can be varied by the changing the colour in the material tag of the visual element in the bot's sdf. The list of all colours and materials available for Gazebo are avialable [here](http://wiki.ros.org/simulator_gazebo/Tutorials/ListOfMaterials).
 
 ## Usage
 1. After cloning the repo, go into your ROS2 workspace and run the following commands:<br/>
-<code>
+```
 colcon build       
-
+```
+```
 . install/setup.bash
-</code>  
+``` 
 
 2. Now enter into the Wall-e-simulation-ros folder.
 
-3. For launching the self-balancing bot, enter the following command:<code>  ros2 launch my_bot self_balancing.launch.py  </code>
+3. For launching the self-balancing bot, enter the following command:``` ros2 launch my_bot self_balancing.launch.py ```
  
-4. For running the self-balancing code, enter the following command:<code>  ros2 run my_bot self_balancing </code>
+4. For running the self-balancing code, enter the following command:``` ros2 run my_bot self_balancing ```
  
-5. For launching the line-following bot, enter the following command:<code>  ros2 launch my_bot line_following.launch.py </code>
+5. For launching the line-following bot, enter the following command:``` ros2 launch my_bot line_following.launch.py ```
   
-6. For running the line-following code, enter the following command:<code> ros2 run my_bot line_following  </code>
+6. For running the line-following code, enter the following command:``` ros2 run my_bot line_following ```
 
-7. For launching the self-balancing plus line-following combined bot, enter the following command:<code>  ros2 launch my_bot walle.launch.py </code>
+7. For launching the self-balancing plus line-following combined bot, enter the following command:``` ros2 launch my_bot walle.launch.py ```
 
-8. For running the self-balancing plus line-following combined code, enter the following command:<code> ros2 run my_bot wall_e </code>
+8. For running the self-balancing plus line-following combined code, enter the following command:``` ros2 run my_bot wall_e ```
 
-9. Everytime you make a change in the code/files, you will have to execute the build and source commands mentioned in point number 1. Alternatively, you can run the <code> build.sh </code> script which will execute both the commands mentioned in point number 1 from within the ROS 2 package. It will take the package name as input and execute those commands so that you don't have to go to the root of your workspace to build and source everytime you make a change. First create an executable for the script using the following command: <code> chmod +x build.sh </code>
+9. Everytime you make a change in the code/files, you will have to execute the build and source commands mentioned in point number 1. Alternatively, you can run the ``` build.sh ``` script which will execute both the commands mentioned in point number 1 from within the ROS 2 package. It will take the package name as input and execute those commands so that you don't have to go to the root of your workspace to build and source everytime you make a change. First create an executable for the script using the following command: <br>``` chmod +x build.sh ```
 
-10. After creating an executable for the <code> build.sh </code> script as instructed in point number 9, to run the script, enter the following command: <code> . build.sh </code>. 
+10. After creating an executable for the ``` build.sh ``` script as instructed in point number 9, to run the script, enter the following command: <br>``` . build.sh ```. 
 
 ## Theory and Approach
 
@@ -166,7 +167,7 @@ https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-
 ## Troubleshooting 
 * Sometimes the self-balancing code will behave differently than the previous run. Try to stop the execution of the code and launch the bot again and run the code.
 * Always launch the bot and the codes from within the Wall-e-simulation-ros folder. Otherwise it may not the launch the world correctly.
-* Also sometimes Gazebo might not launch inspite of running the launch commands. In such cases, try entering the command <code>killall gzserver</code> and then launching the bot again.
+* Also sometimes Gazebo might not launch inspite of running the launch commands. In such cases, try entering the command ``` killall gzserver ``` and then launching the bot again.
 
 ## Contributors
 * [Aryaman Shardul](https://github.com/Aryaman22102002)<br/>
@@ -175,7 +176,7 @@ https://user-images.githubusercontent.com/82901720/138333629-1ce269dd-8157-4214-
 ## Acknowledgements and Resources
 * [SRA Vjti](https://www.sravjti.in/) Eklavya 2021<br/>
 * Special thanks to our mentors [Gautam Agrawal](https://github.com/gautam-dev-maker) and [Anushree Sabnis](https://github.com/MOLOCH-dev).<br/>
-* Our [Project Report](https://github.com/Aryaman22102002/Wall-e-simulation-ros/blob/main/assets/Project%20Report.pdf)
+* Our [Project Report](https://github.com/Aryaman22102002/Wall-e-simulation-ros2/blob/main/assets/Project_Report.pdf)
 * https://github.com/SRA-VJTI/Wall-E_v2.2
 * My answer to why the meshes are not spawning in ROS2 : https://answers.gazebosim.org//question/26073/cannot-spawn-urdf-into-gazebo-using-ros2/ 
 * https://navigation.ros.org/setup_guides/urdf/setup_urdf.html
